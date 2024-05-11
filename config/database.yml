@@ -21,13 +21,13 @@ default: &default
 
 development:
   <<: *default
-  database: change_this_to_your_rails_app_name_development
+  database: ecotraker_development
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
   # When left blank, PostgreSQL will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: change_this_to_your_rails_app_name
+  #username: ecotraker
 
   # The password associated with the PostgreSQL role (username).
   #password:
@@ -55,7 +55,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: change_this_to_your_rails_app_name_test
+  database: ecotraker_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -79,6 +79,6 @@ test:
 #
 production:
   <<: *default
-  database: change_this_to_your_rails_app_name_production
-  username: change_this_to_your_rails_app_name
-  password: <%= ENV["CHANGE_THIS_TO_YOUR_RAILS_APP_NAME_DATABASE_PASSWORD"] %>
+  database: ecotraker_production
+  username: ecotraker
+  password: <%= ENV["ECOTRAKER_DATABASE_PASSWORD"] %>

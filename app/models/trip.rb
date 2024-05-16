@@ -2,7 +2,7 @@ class Trip < ApplicationRecord
   belongs_to :user
   has_many :days, dependent: :destroy
 
-  validates :start, :end, :label , presence: true
+  validates :start, :end, :label, :vehicle, presence: true
   validate :start_must_be_different_from_end
 
   private

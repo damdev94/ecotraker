@@ -2,4 +2,15 @@
   <%= f.input :label %>
   <%= f.input :start %>
   <%= f.input :end %>
+  <%= f.input :vehicle_id, collection: Vehicle.all, prompt: "Select Vehicle" %>
+  <%= f.submit %>
+
+  <br>
+  <br>
+
+  <%= simple_form_for(@day) do |f| %>
+    <%= f.input :date %>
+    <%= f.submit "Add Day to Trip" %>
+  <% end %>
+
 <% end %>

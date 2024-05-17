@@ -3,7 +3,7 @@ class Trip < ApplicationRecord
   belongs_to :vehicle
   has_many :days, dependent: :destroy
 
-  validates :start, :end, :label, :vehicle, presence: true
+  validates :start, :end, :label, :vehicle_id, :user_id, presence: true
   validate :start_must_be_different_from_end
 
   private

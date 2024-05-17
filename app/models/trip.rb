@@ -1,5 +1,6 @@
 class Trip < ApplicationRecord
   belongs_to :user
+  belongs_to :vehicle
   has_many :days, dependent: :destroy
 
   validates :start, :end, :label, :vehicle, presence: true

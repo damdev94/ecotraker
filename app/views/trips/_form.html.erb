@@ -1,12 +1,20 @@
 <%= simple_form_for(trip) do |f| %>
+
   <%= f.input :label %>
   <%= f.input :start %>
   <%= f.input :end %>
+
   <%= f.input :vehicle_id, collection: @vehicles.map { |v| [v.model, v.id] }, prompt: 'Select a vehicle' %>
 
-  <%= f.simple_fields_for :days do |day_form| %>
-    <%= render 'day_fields', f: day_form %>
-  <% end %>
+   <div class="days-section d-flex">
+    <% Date::DAYNAMES.each do |day_name| %>
+      <div class="days p-2">
+        <h4><%= day_name %></h4>
+        <%= f.hidden_field :day_names, value: day_name %>
+        <%= link_to "+", "#", class: "add-day", data: { day_name: day_name } %>
+      </div>
+    <% end %>
+  </div>
 
   <%= f.submit %>
 <% end %>

@@ -10,6 +10,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="navbar">
+      <%= link_to "Manage my trips", trips_path %>
+      <%= link_to "Today's trips", days_path %>
+      <%= link_to "My account", edit_user_registration_path %>
+    </div>
+    <div class="container-layout">
+      <%= yield %>
+    </div>
   </body>
 </html>

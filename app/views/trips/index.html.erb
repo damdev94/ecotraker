@@ -1,11 +1,11 @@
-<div class="index_trips">
+<div class="container">
   <h1>INDEX TRIPS</h1>
-    <div class= "card_trip">
     <% @trips.each do |trip| %>
-      <div class= "card_trip_infos">
-        <div>
-          <h2>
-        </div>
-      </div>
-    </div>
+      <li><%= link_to trip.label, edit_trip_path(trip) %></li>
+    <% end %>
+
+    <br>
+    <br>
+
+  <%= link_to "Create a trip", new_trip_path %>
 </div>

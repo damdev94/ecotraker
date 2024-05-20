@@ -2,4 +2,11 @@
   <%= f.input :label %>
   <%= f.input :start %>
   <%= f.input :end %>
+  <%= f.input :vehicle_id, collection: @vehicles.map { |v| [v.model, v.id] }, prompt: 'Select a vehicle' %>
+
+  <%= f.simple_fields_for :days do |day_form| %>
+    <%= render 'day_fields', f: day_form %>
+  <% end %>
+
+  <%= f.submit %>
 <% end %>

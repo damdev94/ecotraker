@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :trips, dependent: :destroy
   has_many :vehicles, dependent: :destroy
+  has_many :places, dependent: :destroy
 
   validates :password, :address, presence: true
   validates :email, :pseudo, presence: true , uniqueness: true

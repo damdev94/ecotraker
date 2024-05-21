@@ -1,7 +1,7 @@
 class DaysController < ApplicationController
   def index
     today = Date.today
-    @trips = Trip.joins(:days).where(days: {date: today}).distinct
+    @trips = Trip.joins(:days).where(days: {date: today})
   end
 
   def create
@@ -11,6 +11,6 @@ class DaysController < ApplicationController
   private
 
   def day_params
-    params.require(:day).permit(:date, :trip_id)
+    params.require(:day).permit(:date)
   end
 end

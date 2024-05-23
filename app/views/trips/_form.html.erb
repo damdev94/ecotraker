@@ -1,8 +1,8 @@
 <%= simple_form_for(trip) do |f| %>
 
   <%= f.input :label %>
-  <%= f.input :start %>
-  <%= f.input :end %>
+  <%= f.input :start_place %>
+  <%= f.input :end_place %>
 
   <%= f.input :vehicle_id, collection: @vehicles.map { |v| [v.model, v.id] }, prompt: 'Select a vehicle' %>
 

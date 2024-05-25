@@ -1,8 +1,14 @@
 <div class="container">
   <h1>INDEX TRIPS</h1>
     <% @trips.each do |trip| %>
-      <li><%= link_to trip.label, edit_trip_path(trip) %></li>
-    <% end %>
+  <ul>
+    <li>
+      <%= trip.label %>
+      <%= link_to "Edit", edit_trip_path(trip) %>
+      <%= link_to 'Destroy', trip_path(trip), data: { turbo_method: :delete, confirm: 'Are you sure?' } %>
+    </li>
+  </ul>
+<% end %>
 
     <br>
     <br>

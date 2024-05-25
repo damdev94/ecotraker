@@ -21,14 +21,20 @@ vehicle1 = Vehicle.create!(
 
 # Créer des places
 place1 = Place.create!(
-  name: "Le Wagon",
-  address: "16 Villa Gaudelet, Paris",
-  user: user1
+  id: 1,
+  name: "work",
+  address: "Ottawa",
+  user: user1,
+  latitude: 45.4208777,
+  longitude: -75.6901106
 )
 place2 = Place.create!(
-  name: "Maison",
-  address: "Place de l'Opéra, Paris",
-  user: user1
+  id: 2,
+  name: "loic jeannin",
+  address: "Montréal",
+  user: user1,
+  latitude: 45.5031824,
+  longitude: -73.5698065
 )
 
 # Créer un trajet

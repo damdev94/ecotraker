@@ -4,7 +4,7 @@
   <%= f.input :start_place %>
   <%= f.input :end_place %>
 
-  <%= f.input :vehicle_id, collection: @vehicles.map { |v| [v.model, v.id] }, prompt: 'Select a vehicle' %>
+  <%= f.input :vehicle_id, collection: @vehicles.map { |v| [v.vehicle_type, v.id] }, prompt: 'Select a vehicle' %>
 
    <div class="days-section d-flex">
     <% Date::DAYNAMES.each do |day_name| %>

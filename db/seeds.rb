@@ -1,9 +1,7 @@
 require "open-uri"
 
-# Détruire tous les utilisateurs
 User.destroy_all
 
-# Créer un utilisateur
 user1 = User.create!(
   email: "bgdu33@gmail.com",
   password: "123456",
@@ -11,15 +9,19 @@ user1 = User.create!(
   address: "1452 Rue Bélanger, Montréal, QC H2G 1A7"
 )
 
-# Créer un véhicule
 vehicle1 = Vehicle.create!(
+  vehicle_type: "car",
   brand: "Toyota",
   model: "Corolla",
   year: "2022",
   user: user1
 )
 
-# Créer des places
+vehicle2 = Vehicle.create!(
+  vehicle_type: "bus",
+  user: user1
+)
+
 place1 = Place.create!(
   id: 1,
   name: "work",
@@ -37,8 +39,7 @@ place2 = Place.create!(
   longitude: -73.5698065
 )
 
-# Créer un trajet
-trip1 = Trip.new(
+trip1 = Trip.create!(
   start_place_id: place2.id,
   end_place_id: place1.id,
   label: "#{place2.name} to #{place1.name}",
@@ -46,7 +47,12 @@ trip1 = Trip.new(
   vehicle: vehicle1
 )
 
-# Sauvegarder le trajet et vérifier les erreurs de validation
+day1 = Day.create!(
+  id:1,
+  trip_id: trip1.id,
+  date: Date.today
+)
+
 if trip1.save
   puts "Trip created successfully!"
 else

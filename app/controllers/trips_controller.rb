@@ -10,6 +10,7 @@ class TripsController < ApplicationController
   end
 
   def new
+    @places = Place.where(user_id: current_user.id).all
     @day = Day.new
     @trip = Trip.new
     @trip.days.build
@@ -19,6 +20,12 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
+
+    start_place = Place.find[trip_params(:start_place_id)]
+    end_place = Place.find[trip_params(:end_place_id)]
+
+    @trip.label = "#{start_place.name} to #{end_place.name}"
+
     if @trip.save
       redirect_to trips_path
     else

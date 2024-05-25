@@ -7,7 +7,6 @@
   <div data-controller="toggle">
     <fieldset>
       <div>
-
         <input value="car" type="checkbox" id="car" name="vehicle_type[]" data-action="change->toggle#fire"/>
         <label for="car">Car</label>
       </div>
@@ -34,15 +33,10 @@
     </fieldset>
 
         <div data-toggle-target="togglableElement" class="d-none">
-
-
           <%= f.input :brand %>
           <%= f.input :model %>
           <%= f.input :year %>
           <%= f.submit %>
-
-
         </div>
-
     </div>
     <% end %>

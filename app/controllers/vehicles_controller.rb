@@ -5,13 +5,21 @@ class VehiclesController < ApplicationController
   end
 
   def create
-    @vehicle = Vehicle.new(vehicle_params)
-    @vehicle.user_id = current_user.id
-    if @vehicle.save
-      redirect_to trips_path
-    else
-      render :new, status: :unprocessable_entity
+    params[:vehicle_type].each do |vehicle_type|
+      if vehicle_type == "car"
+        @vehicle = Vehicle.new(vehicle_params)
+      else
+        @vehicle = Vehicle.new
+      end
+      @vehicle.vehicle_type = vehicle_type
+      @vehicle.user_id = current_user.id
+
+      unless @vehicle.save
+        render :new, status: :unprocessable_entity
+      end
     end
+    redirect_to trips_path
+
   end
 
   def edit

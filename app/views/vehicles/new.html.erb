@@ -1,3 +1,48 @@
-<h1>New vehicle</h1>
+<h6>Then about your transports info</h6>
 
-<%= render 'form', vehicle: @vehicle %>
+
+  <%= simple_form_for(@vehicle, html: { id: 'vehicleForm' }) do |f| %>
+  <h6>Select your transports :</h6>
+
+  <div data-controller="toggle">
+    <fieldset>
+      <div>
+
+        <input value="car" type="checkbox" id="car" name="vehicle_type[]" data-action="change->toggle#fire"/>
+        <label for="car">Car</label>
+      </div>
+
+     <div>
+        <input value="bike" type="checkbox" id="bike" name="vehicle_type[]" />
+        <label for="bike">Bike</label>
+     </div>
+
+      <div>
+       <input value="bus" type="checkbox" id="bus" name="vehicle_type[]" />
+       <label for="bus">Bus</label>
+      </div>
+
+      <div>
+        <input value="walk"type="checkbox" id="walk" name="vehicle_type[]"/>
+       <label for="walk">Walk</label>
+      </div>
+
+      <div>
+       <input value="metro" type="checkbox" id="metro" name="vehicle_type[]"/>
+       <label for="metro">Metro</label>
+      </div>
+    </fieldset>
+
+        <div data-toggle-target="togglableElement" class="d-none">
+
+
+          <%= f.input :brand %>
+          <%= f.input :model %>
+          <%= f.input :year %>
+          <%= f.submit %>
+
+
+        </div>
+
+    </div>
+    <% end %>

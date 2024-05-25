@@ -1,5 +1,9 @@
 class PlacesController < ApplicationController
 
+  def index
+    @places = Place.all
+  end
+
 
   def new
     @place = Place.new
@@ -9,7 +13,7 @@ class PlacesController < ApplicationController
     @place = Place.new(place_params)
     @place.user_id = current_user.id
     if @place.save
-      redirect_to vehicle_new_path
+      redirect_to new_vehicle_path
     else
       render :new
     end

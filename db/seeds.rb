@@ -23,7 +23,7 @@ vehicle2 = Vehicle.create!(
 )
 
 place1 = Place.create!(
-  id: 1,
+  id: 11000,
   name: "work",
   address: "Ottawa",
   user: user1,
@@ -31,7 +31,7 @@ place1 = Place.create!(
   longitude: -75.6901106
 )
 place2 = Place.create!(
-  id: 2,
+  id: 20000,
   name: "loic jeannin",
   address: "Montréal",
   user: user1,

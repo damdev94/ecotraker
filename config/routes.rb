@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   end
 
   resources :days, only: [ :index, :destroy ]
+
+  resources :vehicles, only: [ :new, :create, :edit]
   # Defines the root path route ("/")
   # root "posts#index"
 end

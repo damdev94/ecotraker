@@ -28,6 +28,7 @@ class TripsController < ApplicationController
   end
 
   def edit
+    @places = Place.where(user_id: current_user.id).all
     @vehicles = Vehicle.where(user_id: current_user.id)
   end
 

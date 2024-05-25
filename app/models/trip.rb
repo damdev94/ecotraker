@@ -9,4 +9,6 @@ class Trip < ApplicationRecord
 
   validates  :label, :vehicle, presence: true
 
+  attr_accessor :schedule
+
 end

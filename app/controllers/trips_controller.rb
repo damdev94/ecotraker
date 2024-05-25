@@ -1,12 +1,8 @@
 class TripsController < ApplicationController
-  before_action :set_trip, only: [:show, :edit, :update, :destroy]
+  before_action :set_trip, only: [ :edit, :update, :destroy]
 
   def index
     @trips = Trip.all
-  end
-
-  def show
-
   end
 
   def new
@@ -15,18 +11,29 @@ class TripsController < ApplicationController
     @trip = Trip.new
     @trip.days.build
     @vehicles = Vehicle.where(user_id: current_user.id)
+
+    @week_days = []
+    i = 0
+    7.times do
+      @week_days << [(Date.today + i).strftime("%A"), Date.today + i]
+      i += 1
+    end
   end
 
   def create
+    @places = Place.where(user_id: current_user.id).all
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
 
-    start_place = Place.find[trip_params(:start_place_id)]
-    end_place = Place.find[trip_params(:end_place_id)]
+    start_place = Place.find(params[:trip][:start_place_id])
+    end_place = Place.find(params[:trip][:end_place_id])
 
+    @trip.start_place = start_place
+    @trip.end_place = end_place
     @trip.label = "#{start_place.name} to #{end_place.name}"
 
     if @trip.save
+      params[:trip][:schedule].each { |day| Day.create(date: Date.parse(day), trip: @trip) }
       redirect_to trips_path
     else
       @vehicles = Vehicle.where(user_id: current_user.id)
@@ -56,7 +63,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:label, :start, :end, :vehicle_id, days_attributes: [:id, :date, :_destroy])
+    params.require(:trip).permit(:label, :start, :end, :schedule, :vehicle_id)
   end
 
   def set_trip

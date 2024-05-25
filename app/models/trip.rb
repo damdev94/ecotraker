@@ -11,4 +11,5 @@ class Trip < ApplicationRecord
 
   attr_accessor :schedule
 
+
 end

@@ -1,27 +1,20 @@
 class TripsController < ApplicationController
-  before_action :set_trip, only: [ :edit, :update, :destroy]
+  before_action :set_trip, only: [:edit, :update, :destroy]
+  before_action :week_days, only: [:new, :edit]
 
   def index
     @trips = Trip.all
   end
 
   def new
-    @places = Place.where(user_id: current_user.id).all
-    @day = Day.new
+    @places = Place.where(user_id: current_user.id)
     @trip = Trip.new
     @trip.days.build
     @vehicles = Vehicle.where(user_id: current_user.id)
-
-    @week_days = []
-    i = 0
-    7.times do
-      @week_days << [(Date.today + i).strftime("%A"), Date.today + i]
-      i += 1
-    end
   end
 
   def create
-    @places = Place.where(user_id: current_user.id).all
+    @places = Place.where(user_id: current_user.id)
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
 
@@ -42,15 +35,30 @@ class TripsController < ApplicationController
   end
 
   def edit
-    @places = Place.where(user_id: current_user.id).all
+    @places = Place.where(user_id: current_user.id)
     @vehicles = Vehicle.where(user_id: current_user.id)
+    @trip_day_dates = @trip.days.pluck(:date)
   end
 
   def update
+    @places = Place.where(user_id: current_user.id)
+    @vehicles = Vehicle.where(user_id: current_user.id)
+
+    start_place = Place.find(params[:trip][:start_place_id])
+    end_place = Place.find(params[:trip][:end_place_id])
+
+    @trip.start_place = start_place
+    @trip.end_place = end_place
+
     if @trip.update(trip_params)
-      redirect_to trip_path(@trip)
+      @trip.days.destroy_all
+      params[:trip][:schedule].each do |day|
+        Day.create(date: Date.parse(day), trip: @trip)
+      end
+      @trip.label = "#{start_place.name} to #{end_place.name}"
+      @trip.save
+      redirect_to trips_path
     else
-      @vehicles = Vehicle.where(user_id: current_user.id)
       render :edit, status: :unprocessable_entity
     end
   end
@@ -63,10 +71,17 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:label, :start, :end, :schedule, :vehicle_id)
+    params.require(:trip).permit(:label, :start_place_id, :end_place_id, :vehicle_id, schedule: [])
   end
 
   def set_trip
     @trip = Trip.find(params[:id])
+  end
+
+  def week_days
+    @week_days = []
+    7.times do |i|
+      @week_days << [(Date.today + i).strftime("%A"), (Date.today + i)]
+    end
   end
 end

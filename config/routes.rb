@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :trips, only: [ :index, :show, :new, :create, :edit] do
+  resources :trips, except: [:show] do
     resources :days, only: [ :new, :create ]
   end
 

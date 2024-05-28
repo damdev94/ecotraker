@@ -4,13 +4,20 @@
   <%= f.input :end_place_id, collection: @places.map { |p| [p.name, p.id] }, prompt: 'Select an end place' %>
   <%= f.input :vehicle_id, collection: @vehicles.map { |v| [v.vehicle_type, v.id] }, prompt: 'Select a vehicle' %>
 
-  <div class="days-section d-flex">
-    <% Date::DAYNAMES.each_with_index do |day_name, index| %>
-      <div class="days p-2">
-        <h4><%= day_name %></h4>
-      </div>
-    <% end %>
-  </div>
+  <% if @trip_day_dates %>
+    <div class="days-section d-flex">
+      <% @week_days.each do |day_name, date| %>
+        <div class="day-checkbox">
+          <%= check_box_tag "trip[schedule][]", date, @trip_day_dates.include?(date) %>
+          <%= label_tag "trip_schedule_#{date}", day_name %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="days-section d-flex">
+      <%= f.input :schedule, as: :check_boxes, collection: @week_days, include_hidden: false %>
+    </div>
+  <% end %>
 
   <%= f.submit %>
 <% end %>

@@ -4,13 +4,17 @@
   <%= simple_form_for(@vehicle, html: { id: 'vehicleForm' }) do |f| %>
     <h6>Select your transports :</h6>
 
-    <div data-controller="toggle">
-      <fieldset>
+  <div data-controller="toggle">
+    <fieldset>
+      <div>
+        <input value="car" type="checkbox" id="car" name="vehicle_type[]" data-action="change->toggle#fire"/>
+        <label for="car">Car</label>
+      </div>
 
-        <div>
-          <input value="car" type="checkbox" id="car" name="vehicle_type[]" data-action="change->toggle#fire"/>
-          <label for="car">Car</label>
-        </div>
+     <div>
+        <input value="bike" type="checkbox" id="bike" name="vehicle_type[]" />
+        <label for="bike">Bike</label>
+     </div>
 
         <div>
           <input value="bike" type="checkbox" id="bike" name="vehicle_type[]" />
@@ -27,6 +31,7 @@
           <label for="walk">Walk</label>
         </div>
 
+
         <div>
           <input value="metro" type="checkbox" id="metro" name="vehicle_type[]"/>
           <label for="metro">Metro</label>
@@ -39,7 +44,8 @@
           <%= f.input :model %>
           <%= f.input :year %>
         </div>
-        <%= f.submit %>
+          <%= f.submit %>
+        </div>
     </div>
 
   <% end %>

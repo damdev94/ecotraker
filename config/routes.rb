@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :days, only: [ :new, :create ]
   end
 
-  resources :days, only: [ :index, :destroy ]
+  resources :days, only: [ :destroy ]
 
 
   resources :places, only: [ :new, :create]

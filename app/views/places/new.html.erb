@@ -1,5 +1,7 @@
-<h1>New place</h1>
+<h1 class="main-title">Welcome to EcoTrack!</h1>
+<h2 class="secondary-title">Calculate the real impact of my trips!</h1>
+  <div class="container-dark-blue">
+    <%= render 'form', new: @place %>
 
-<%= render 'form', new: @place %>
-
-<%= link_to "next", new_vehicle_path, class: "btn btn-primary"  %>
+    <%= link_to "Next", new_vehicle_path, class: "button-green main-title"  %>
+  </div>

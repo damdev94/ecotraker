@@ -1,17 +1,20 @@
 <div class="container">
-  <h1>INDEX TRIPS</h1>
+  <h1 class="main-title">My trips</h1>
+  <h2 class="secondary-title">Based on my weekly activity</h1>
     <% @trips.each do |trip| %>
   <ul>
-    <li>
-      <%= trip.label %>
-      <%= link_to "Edit", edit_trip_path(trip) %>
-      <%= link_to 'Destroy', trip_path(trip), data: { turbo_method: :delete, confirm: 'Are you sure?' } %>
-    </li>
+    <div class="container-dark-blue">
+      <li>
+        <%= trip.label %>
+        <%= link_to "Edit", edit_trip_path(trip) %>
+        <%= link_to 'Destroy', trip_path(trip), data: { turbo_method: :delete, confirm: 'Are you sure?' } %>
+      </li>
+    </div>
   </ul>
 <% end %>
 
     <br>
     <br>
 
-  <%= link_to "Create a trip", new_trip_path %>
+  <%= link_to "See my EcoTrack score", new_trip_path, class: "button-green main-title" %>
 </div>

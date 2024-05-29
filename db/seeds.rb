@@ -9,7 +9,7 @@ user1 = User.create!(
   address: "1452 Rue Bélanger, Montréal, QC H2G 1A7"
 )
 
-vehicle1 = Vehicle.create!(
+=begin vehicle1 = Vehicle.create!(
   vehicle_type: "car",
   brand: "Toyota",
   model: "Corolla",
@@ -58,3 +58,4 @@ if trip1.save
 else
   puts "Failed to create trip: #{trip1.errors.full_messages.join(", ")}"
 end
+=end

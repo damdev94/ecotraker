@@ -1,7 +1,9 @@
 <h1 class="main-title">Welcome to EcoTrack!</h1>
 <h2 class="secondary-title">Calculate the real impact of my trips!</h1>
   <div class="container-dark-blue">
-    <%= render 'form', new: @place %>  
+    <%= render 'form', new: @place %>
+
+    <%= link_to "Next", new_vehicle_path, class: "button-green main-title"  %>
   </div>
 
 <% if flash.now[:notice] %>
@@ -11,8 +13,3 @@
 <% if flash.now[:alert] %>
   <p class="alert"><%= flash.now[:alert] %></p>
 <% end %>
-
-<%= render 'form', new: @place %>
-
-<%= link_to "Next", new_vehicle_path, class: "button-green main-title"  %>
-

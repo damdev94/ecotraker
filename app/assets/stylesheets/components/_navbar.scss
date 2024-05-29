@@ -1,16 +1,21 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
 .navbar-ecotrack {
   background-color: #494FB8;
-  padding: 20px;
+  padding: 10px;
+  color: $light-gray;
+
+}
+
+.navbar-toggler {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  color: #494FB8 ;
+}
+
+.nav-link{
+  color: $light-gray ;
+}
+
+h3{
+  padding-top: 5px;
 }

@@ -1,6 +1,7 @@
 .button-green {
   display: block;
   margin: 20px;
+  margin-bottom: 0px;
   background-color: #3EDAB5;
   color: #fff;
   border: none;
@@ -9,4 +10,25 @@
   font-size: 20px;
   text-align: center;
   text-decoration: none;
+}
+
+.button-empty-green {
+  display: block;
+  margin-left: 0px;
+  background-color:transparent;
+  color:#3EDAB5;
+  border: 1px solid #3EDAB5;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  align-items: center;
 }

@@ -3,10 +3,24 @@
   margin-right: 20px;
   margin-top: 32px;
   padding-top: 32px;
-  padding-bottom: 32px;
+  padding-bottom: 15px;
   padding-left: 20px;
   padding-right: 20px;
   background-color: #1E2483;
   color: #FFFFFF;
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-inside {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.container-inside form {
+  align-items: flex-start;
 }

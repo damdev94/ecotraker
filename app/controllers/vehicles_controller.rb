@@ -1,3 +1,7 @@
+require "open-uri"
+require "json"
+require "rest-client"
+
 class VehiclesController < ApplicationController
 
   def new
@@ -8,6 +12,47 @@ class VehiclesController < ApplicationController
     params[:vehicle_type].each do |vehicle_type|
       if vehicle_type == "car"
         @vehicle = Vehicle.new(vehicle_params)
+
+        url_brand = "https://www.carboninterface.com/api/v1/vehicle_makes"
+        token = 'dOD3GnxZFQjx6nLuMcN9w'
+
+        URI.open(url_brand, 'Authorization' => "Bearer #{token}") do |response|
+          response_serialized = response.read
+          response_json = JSON.parse(response_serialized)
+          brand_element = response_json.find do |brand|
+            brand["data"]["attributes"]["name"] == @vehicle.brand
+          end
+          @brand_id = brand_element["data"]["id"]
+        end
+
+        url_model = "https://www.carboninterface.com/api/v1/vehicle_makes/#{@brand_id}/vehicle_models"
+
+        URI.open(url_model, 'Authorization' => "Bearer #{token}") do |response|
+          response_serialized = response.read
+          response_json = JSON.parse(response_serialized)
+          model_element = response_json.find do |model|
+            model["data"]["attributes"]["name"] == @vehicle.model && model["data"]["attributes"]["year"] == @vehicle.year.to_i
+          end
+          @model_id = model_element["data"]["id"]
+        end
+
+        url_consumption = "https://www.carboninterface.com/api/v1/estimates"
+
+        data = {
+          "type": "vehicle",
+          "distance_unit": "km",
+          "distance_value": 100,
+          "vehicle_model_id": @model_id
+        }
+
+        RestClient.post(url_consumption, data.to_json, { content_type: :json, accept: :json, authorization: "Bearer #{token}" }) do |response|
+          response_json = JSON.parse(response)
+          @carbon_kg = response_json["data"]["attributes"]["carbon_kg"]
+        end
+
+        @vehicle.api_id = @model_id
+        @vehicle.carbon_kg = @carbon_kg
+
       else
         @vehicle = Vehicle.new
       end

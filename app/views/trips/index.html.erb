@@ -2,19 +2,22 @@
   <h1 class="main-title">My trips</h1>
   <h2 class="secondary-title">Based on my weekly activity</h1>
     <% @trips.each do |trip| %>
-  <ul>
-    <div class="container-dark-blue">
-      <li>
-        <%= trip.label %>
-        <%= link_to "Edit", edit_trip_path(trip) %>
-        <%= link_to 'Destroy', trip_path(trip), data: { turbo_method: :delete, confirm: 'Are you sure?' } %>
-      </li>
+    <div class="container-trip">
+      <div class="container-inside">
+        <%= trip.label %><br>
+        <%= trip.vehicle.brand%>
+      </div>
+      <%= link_to edit_trip_path(trip) do %>
+        <i class="fa-solid fa-pencil"></i>
+      <% end %>
+      <%= link_to trip_path(trip), data: { turbo_method: :delete, confirm: 'Are you sure?' } do%>
+        <i class="fa-solid fa-trash-can"></i>
+      <% end %>
     </div>
-  </ul>
 <% end %>
 
     <br>
     <br>
 
-  <%= link_to "Create a trip", new_trip_path, class: "button-green main-title" %>
+  <%= link_to "Create a trip", new_trip_path, class: "button-green secondary title" %>
 </div>

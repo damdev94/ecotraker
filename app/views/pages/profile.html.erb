@@ -7,7 +7,7 @@
 <div class="page">
 
 
-
+<% if current_user.score == 0 %>
     <div class="container-score">
       <div class="logo">
         <%= image_tag "arcticons_earth.svg" %>
@@ -18,10 +18,7 @@
   <button class="button-green">Plan my trips</button>
 
 
-
-
-
-
+  <% else %>
     <div class="container-smile">
       <div class="logo-smile">
         <i class="fa-regular fa-face-sad-tear"></i>
@@ -89,7 +86,7 @@
     </div>
 
 
-
+<% end %>
 
 
 

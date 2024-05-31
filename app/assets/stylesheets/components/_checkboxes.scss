@@ -1,0 +1,54 @@
+.days-section {
+  width: 300px;
+}
+
+.form-check {
+  position: relative;
+}
+
+.form-check-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  background-color: white;
+  color: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  left: 0px;
+}
+
+.form-check-input {
+  padding: 15px;
+}
+
+.col-form-label {
+  display: none;
+}
+
+.trip_schedule {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.check_boxes {
+  display: flex;
+  justify-content: space-around;
+}
+
+.form-check-input {
+  display: none;
+}
+
+/* Styles pour les étiquettes des cases à cocher cochées */
+.form-check-input:checked + .form-check-label {
+  background-color: $green;
+}
+
+/* Styles pour les étiquettes des cases à cocher non cochées */
+.form-check-input:not(:checked) + .form-check-label {
+  background-color: white;
+}

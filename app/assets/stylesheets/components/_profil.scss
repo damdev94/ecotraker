@@ -1,0 +1,62 @@
+.container-score,
+.container-smile,
+.container-stat{
+  margin: 20px ;
+  padding: 32px;
+  background-color: #1E2483;
+  color: #FFFFFF;
+  border-radius: 20px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+
+.page{
+  display: flex;
+  flex-direction: column;
+}
+
+.button-green{
+  margin-top: 70px;
+}
+
+
+.logo-smile i {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.logo{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.stat{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.stat{
+  p{
+    margin-left: 30px;
+  }
+}
+
+.para{
+  margin-left: 20px;
+}
+
+
+.logo-smile{
+  margin-bottom: 20px;
+}
+
+.compare{
+  display: flex;
+}

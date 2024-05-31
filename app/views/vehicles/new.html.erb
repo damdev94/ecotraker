@@ -3,47 +3,46 @@
 <div class="container-dark-blue">
   <h2 class="secondary-title">Then about my transports info</h2>
 
+  <div class="container-inside">
+    <%= simple_form_for(@vehicle, html: { id: 'vehicleForm' }) do |f| %>
+        <h3 class="tertiary-title">Select your transports :</h3>
 
-  <%= simple_form_for(@vehicle, html: { id: 'vehicleForm' }) do |f| %>
-   <div class="container-inside">
-      <h3 class="tertiary-title">Select your transports :</h3>
-
-      <div data-controller="toggle">
-        <fieldset>
-          <div>
-            <input value="car" type="checkbox" id="car" name="vehicle_type[]" data-action="change->toggle#fire"/>
-            <label for="car">Car</label>
-          </div>
+        <div data-controller="toggle">
+          <fieldset>
             <div>
-              <input value="bike" type="checkbox" id="bike" name="vehicle_type[]" />
-              <label for="bike">Bike</label>
+              <input value="car" type="checkbox" id="car" name="vehicle_type[]" data-action="change->toggle#fire"/>
+              <label for="car">Car</label>
             </div>
+              <div>
+                <input value="bike" type="checkbox" id="bike" name="vehicle_type[]" />
+                <label for="bike">Bike</label>
+              </div>
 
-            <div>
-              <input value="bus" type="checkbox" id="bus" name="vehicle_type[]" />
-              <label for="bus">Bus</label>
-            </div>
+              <div>
+                <input value="bus" type="checkbox" id="bus" name="vehicle_type[]" />
+                <label for="bus">Bus</label>
+              </div>
 
-            <div>
-              <input value="walk"type="checkbox" id="walk" name="vehicle_type[]"/>
-              <label for="walk">Walk</label>
-            </div>
+              <div>
+                <input value="walk"type="checkbox" id="walk" name="vehicle_type[]"/>
+                <label for="walk">Walk</label>
+              </div>
 
 
-            <div>
-              <input value="metro" type="checkbox" id="metro" name="vehicle_type[]"/>
-              <label for="metro">Metro</label>
-            </div>
+              <div>
+                <input value="metro" type="checkbox" id="metro" name="vehicle_type[]"/>
+                <label for="metro">Metro</label>
+              </div>
 
-          </fieldset>
+            </fieldset>
 
-            <div data-toggle-target="togglableElement" class="d-none">
-              <%= f.input :brand %>
-              <%= f.input :model %>
-              <%= f.input :year %>
-            </div>
-              <%= f.submit  class: "button-green secondary-title"%>
-            </div>
-      </div>
-  <% end %>
+              <div data-toggle-target="togglableElement" class="d-none">
+                <%= f.input :brand %>
+                <%= f.input :model %>
+                <%= f.input :year %>
+              </div>
+        </div>
+    <%= f.submit  class: "button-green secondary-title button-container"%>
+    <% end %>
+  </div>
 </div>

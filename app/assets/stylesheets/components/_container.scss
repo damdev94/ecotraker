@@ -23,4 +23,26 @@
 
 .container-inside form {
   align-items: flex-start;
+  width: 90%;
+}
+
+.container-trip {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 32px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #1E2483;
+  color: #FFFFFF;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.container-trip i {
+  margin: 10px;
+  color: white;
 }

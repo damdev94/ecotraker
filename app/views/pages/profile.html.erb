@@ -15,7 +15,7 @@
       <h2>No score yet !</h2>
     </div>
 
-  <button class="button-green">Plan my trips</button>
+  <%= link_to "Plan my trips", new_trip_path, class:"button-green" %>
 
 
   <% else %>
@@ -28,14 +28,13 @@
         <br>
       CO2 / week</p>
 
-      <Div class="stat">
+      <div class="stat">
         <i class="fa-solid fa-thumbs-down"></i>
         <p>Worse than 90%
             of the population
           </p>
       </Div>
     </div>
-
 
 
 

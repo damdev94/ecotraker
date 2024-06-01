@@ -12,18 +12,13 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-
+  padding: 10px;
 }
 
 .page{
   display: flex;
   flex-direction: column;
 }
-
-.button-green{
-  margin-top: 70px;
-}
-
 
 .logo-smile i {
   font-size: 60px;
@@ -40,18 +35,17 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-}
+  padding: 10px;
 
-.stat{
   p{
-    margin-left: 30px;
+    margin: 0;
+      }
+
+  i{
+    margin: 10px;
   }
-}
 
-.para{
-  margin-left: 20px;
 }
-
 
 .logo-smile{
   margin-bottom: 20px;
@@ -59,4 +53,5 @@
 
 .compare{
   display: flex;
+  padding: 10px;
 }

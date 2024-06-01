@@ -14,8 +14,8 @@
           <% i = 0 %>
           <% @week_days.each do |day_name, date| %>
             <div class="day-checkbox">
-              <%= check_box_tag "trip[schedule][#{i}]", date, @trip_day_dates.include?(date), class: "form_input" %>
-              <%= label_tag "trip_schedule_#{i}", class: 'form_label_trip' do %>
+              <%= check_box_tag "trip[schedule][#{date}]", date, @trip_day_dates.include?(date), class: "form_input" %>
+              <%= label_tag "trip_schedule_#{date}", class: 'form_label_trip' do %>
                 <%= day_name[0, 2] %>
               <% end %>
             </div>

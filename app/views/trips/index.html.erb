@@ -24,17 +24,20 @@
 
       </div>
 
-      <div class="days-trips-index">
-        <%= simple_form_for(trip) do |f| %>
-          <div class="">
-            <%= f.input :schedule, as: :check_boxes, collection: @week_days.map { |day_name, date| [day_name[0, 2], date] }, include_hidden: false, label: false, wrapper_html: { class: "form_wrapper" }, item_label_class: "form_label_trip", input_html: { class: "form_input" } %>
+      <div class="container-edit-trip">
+        <div class="days-section d-flex w-100">
+            <% @trip_day_dates = trip.days.pluck(:date) %>
+            <% @week_days.each do |day_name, date| %>
+              <div class="day-checkbox">
+                <%= check_box_tag "trip[schedule][]", date, @trip_day_dates.include?(date), class: "form_input" %>
+                <%= label_tag "trip", class: 'form_label_trip' do %>
+                  <%= day_name[0, 2] %>
+                <% end %>
+              </div>
+            <% end %>
           </div>
-        <% end %>
       </div>
     </div>
-
-    <br>
-    <br>
 
     <% end %>
 

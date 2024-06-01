@@ -71,6 +71,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_01_153823) do
     t.string "year"
     t.string "vehicle_type"
     t.integer "carbon_kg"
+    t.string "api_id"
     t.index ["user_id"], name: "index_vehicles_on_user_id"
   end
 

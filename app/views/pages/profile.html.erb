@@ -7,7 +7,7 @@
 <div class="page">
 
 
-
+<% if current_user.score == 0 %>
     <div class="container-score">
       <div class="logo">
         <%= image_tag "arcticons_earth.svg" %>
@@ -15,23 +15,20 @@
       <h2>No score yet !</h2>
     </div>
 
-  <button class="button-green">Plan my trips</button>
+  <%= link_to "Plan my trips", new_trip_path, class:"button-green" %>
 
 
-
-
-
-
+  <% elsif current_user.score %>
     <div class="container-smile">
       <div class="logo-smile">
         <i class="fa-regular fa-face-sad-tear"></i>
       </div>
 
-      <p><strong>8,9 tons</strong>
+      <p><strong><%= current_user.score %></strong>
         <br>
       CO2 / week</p>
 
-      <Div class="stat">
+      <div class="stat">
         <i class="fa-solid fa-thumbs-down"></i>
         <p>Worse than 90%
             of the population
@@ -43,13 +40,12 @@
 
 
 
-
     <div class="container-smile">
       <div class="logo-smile">
         <i class="fa-regular fa-face-sad-tear"></i>
       </div>
 
-      <p><strong>5,2 tons</strong>
+      <p><strong><%= current_user.score %></strong>
         <br>
       CO2 / week</p>
 
@@ -68,7 +64,7 @@
       <div class="logo-smile">
         <i class="fa-regular fa-face-smile"></i>
       </div>
-      <p><strong>1,2 tons</strong><br>CO2 / week</p>
+      <p><strong><%= current_user.score %></strong><br>CO2 / week</p>
       <div class="stat">
         <i class="fa-solid fa-thumbs-up"></i>
         <p>Better than 90% of the population</p>
@@ -89,7 +85,7 @@
     </div>
 
 
-
+<% end %>
 
 
 

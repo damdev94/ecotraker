@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_29_010036) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_01_153823) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,6 +41,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_29_010036) do
     t.bigint "vehicle_id", null: false
     t.integer "end_place_id"
     t.integer "start_place_id"
+    t.float "distance"
     t.index ["user_id"], name: "index_trips_on_user_id"
     t.index ["vehicle_id"], name: "index_trips_on_vehicle_id"
   end
@@ -69,7 +70,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_29_010036) do
     t.datetime "updated_at", null: false
     t.string "year"
     t.string "vehicle_type"
-    t.string "api_id"
     t.integer "carbon_kg"
     t.index ["user_id"], name: "index_vehicles_on_user_id"
   end

@@ -1,18 +1,18 @@
 .jauge {
   background-image: asset-url("rec.png");
-  height: 30px;
+  height: 50px;
   position: relative;
   background-repeat: no-repeat;
   width: 100%;
-  background-size: cover;
+  background-size: 100% auto;
 
 
   .avancement {
     position: absolute;
     top: -15px;
-    width: 100%;
+    width: 30px;
     background-repeat: no-repeat;
-    height: 100%;
+    height: 60px;
     background-image: asset-url("Polygon.png");
 
   }

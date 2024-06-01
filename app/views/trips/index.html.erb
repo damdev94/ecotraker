@@ -1,23 +1,42 @@
 <div class="container">
   <h1 class="main-title">My trips</h1>
-  <h2 class="secondary-title">Based on my weekly activity</h1>
-    <% @trips.each do |trip| %>
+  <h2 class="secondary-title">Based on my weekly activity</h2> <!-- Correction de la balise de fermeture h2 -->
+
+  <% @trips.each do |trip| %>
+
     <div class="container-trip">
       <div class="container-inside">
-        <%= trip.label %><br>
-        <%= trip.vehicle.brand%>
+        <div class="trip-front-part">
+          <div>
+            <%= trip.label %><br>
+            <%= trip.vehicle.brand %>
+          </div>
+
+          <div>
+            <%= link_to edit_trip_path(trip) do %>
+              <i class="fa-solid fa-pencil"></i>
+            <% end %>
+            <%= link_to trip_path(trip), data: { turbo_method: :delete, confirm: 'Are you sure?' } do %>
+              <i class="fa-solid fa-trash-can"></i>
+            <% end %>
+          </div>
+        </div>
+
       </div>
-      <%= link_to edit_trip_path(trip) do %>
-        <i class="fa-solid fa-pencil"></i>
-      <% end %>
-      <%= link_to trip_path(trip), data: { turbo_method: :delete, confirm: 'Are you sure?' } do%>
-        <i class="fa-solid fa-trash-can"></i>
-      <% end %>
+
+      <div class="days-trips-index">
+        <%= simple_form_for(trip) do |f| %>
+          <div class="">
+            <%= f.input :schedule, as: :check_boxes, collection: @week_days.map { |day_name, date| [day_name[0, 2], date] }, include_hidden: false, label: false, wrapper_html: { class: "form_wrapper" }, item_label_class: "form_label_trip", input_html: { class: "form_input" } %>
+          </div>
+        <% end %>
+      </div>
     </div>
-<% end %>
 
     <br>
     <br>
+
+    <% end %>
 
   <%= link_to "Create a trip", new_trip_path, class: "button-green secondary title" %>
 </div>

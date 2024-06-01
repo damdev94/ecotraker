@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: [:edit, :update, :destroy]
-  before_action :week_days, only: [:new, :edit]
+  before_action :week_days, only: [:new, :edit, :index]
 
   def index
     @trips = Trip.all

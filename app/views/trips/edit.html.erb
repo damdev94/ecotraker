@@ -2,6 +2,30 @@
 
 <div class="container-dark-blue">
   <div class="container-inside">
-    <%= render 'form', trip: @trip %>
+    <%= simple_form_for(@trip) do |f| %>
+      <%= f.hidden_field :label %>
+      <%= f.input :start_place_id, collection: @places.map { |p| [p.name, p.id] }, prompt: 'Select a start place' %>
+      <%= f.input :end_place_id, collection: @places.map { |p| [p.name, p.id] }, prompt: 'Select an end place' %>
+      <%= f.input :vehicle_id, collection: @vehicles.map { |v| [v.vehicle_type, v.id] }, prompt: 'Select a vehicle' %>
+
+      <div class="container-edit-trip">
+        <p>Select frequency</p>
+        <div class="days-section d-flex">
+          <% i = 0 %>
+          <% @week_days.each do |day_name, date| %>
+            <div class="day-checkbox">
+              <%= check_box_tag "trip[schedule][#{i}]", date, @trip_day_dates.include?(date), class: "form_input" %>
+              <%= label_tag "trip_schedule_#{i}", class: 'form_label_trip' do %>
+                <%= day_name[0, 2] %>
+              <% end %>
+            </div>
+            <% i += 1 %>
+          <% end %>
+        </div>
+      </div>
+
+
+      <%= f.submit "Add trip", class: "button-green button-create-trip"  %>
+    <% end %>
   </div>
 </div>

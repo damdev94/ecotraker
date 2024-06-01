@@ -1,0 +1,21 @@
+.place{
+  margin: 5px;
+  padding: 8px;
+  border: 1px solid $dark-blue;
+  border-radius: 20px;
+  color: $dark-blue;
+  background-color: $light-gray;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.places{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.all-places{
+  margin: 10px;
+}

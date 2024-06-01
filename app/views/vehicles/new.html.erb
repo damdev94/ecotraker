@@ -13,6 +13,15 @@
               <input value="car" type="checkbox" id="car" name="vehicle_type[]" data-action="change->toggle#fire"/>
               <label for="car">Car</label>
             </div>
+
+            <div data-toggle-target="togglableElement" class="d-none">
+                <div class="form-car"><%= "Enter your car's informations" %></div>
+                <%= f.input :brand %>
+                <%= f.input :model %>
+                <%= f.input :year %>
+            </div>
+
+
               <div>
                 <input value="bike" type="checkbox" id="bike" name="vehicle_type[]" />
                 <label for="bike">Bike</label>
@@ -36,11 +45,7 @@
 
             </fieldset>
 
-              <div data-toggle-target="togglableElement" class="d-none">
-                <%= f.input :brand %>
-                <%= f.input :model %>
-                <%= f.input :year %>
-              </div>
+
         </div>
     <%= f.submit  class: "button-green secondary-title button-container"%>
     <% end %>

@@ -63,7 +63,9 @@ class VehiclesController < ApplicationController
       @vehicle.vehicle_type = vehicle_type
       @vehicle.user_id = current_user.id
 
-      @vehicle.save unless render :new, status: :unprocessable_entity
+      unless @vehicle.save
+        render :new, status: :unprocessable_entity and return
+      end
     end
     redirect_to trips_path
 

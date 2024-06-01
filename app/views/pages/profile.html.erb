@@ -3,92 +3,69 @@
 
 
 
-
 <div class="page">
 
+<div class="container-score">
+  <% if @score == 0 %>
 
-<% if current_user.score == 0 %>
-    <div class="container-score">
-      <div class="logo">
-        <%= image_tag "arcticons_earth.svg" %>
-      </div>
-      <h2>No score yet !</h2>
+        <div class="logo">
+          <%= image_tag "arcticons_earth.svg" %>
+        </div>
+        <h2>No score yet !</h2>
+
+    <% elsif @score < 20 && @score > 10 %>
+        <div class="logo-smile">
+          <i class="fa-regular fa-face-smirking"></i>
+        </div>
+        <div class="jauge">
+          <div class="avancement" style= "right: <%= @placement %>%;"></div>
+        </div>
+        <p><strong><%= @score %> Kg</strong><br>CO2 / week</p>
+        <div class="stat">
+          <i class="fa-solid fa-thumbs-down"></i>
+          <p>Worse than 90% <br>of the population</p>
+        </div>
+
+    <% elsif @score > 20 %>
+        <div class="logo-smile">
+          <i class="fa-regular fa-face-grin-beam-sweat"></i>
+        </div>
+        <div class="jauge">
+          <div class="avancement" style= "right: <%= @placement %>%;"></div>
+        </div>
+        <p><strong><%= @score %> Kg</strong><br>CO2 / week</p>
+        <div class="stat">
+          <i class="fa-solid fa-thumbs-down"></i>
+          <p>Worse than 90% <br>of the population</p>
+        </div>
+
+
+    <%  elsif @score < 10 %>
+        <div class="logo-smile">
+          <i class="fa-regular fa-face-smile"></i>
+        </div>
+        <div class="jauge">
+          <div class="avancement" style= "right: <%= @placement %>%;"></div>
+        </div>
+        <p><strong><%= @score %> Kg</strong><br>CO2 / week</p>
+        <div class="stat">
+            <i class="fa-solid fa-thumbs-down"></i>
+          <p>Worse than 50% <br> of the population</p>
+        </div>
+
+
+
+
+        <%# <div class="compare">
+          <p> - 7,7 Kg of CO2 / week <br>compared to last week</p>
+        </div>
+        <div class="compare">
+          <p>+ 87 $Saved in fuel budget</p>
+        </div> %>
+
+
+
+      <%end %>
     </div>
-
-  <%= link_to "Plan my trips", new_trip_path, class:"button-green" %>
-
-
-  <% elsif current_user.score %>
-    <div class="container-smile">
-      <div class="logo-smile">
-        <i class="fa-regular fa-face-sad-tear"></i>
-      </div>
-
-      <p><strong><%= current_user.score %></strong>
-        <br>
-      CO2 / week</p>
-
-      <div class="stat">
-        <i class="fa-solid fa-thumbs-down"></i>
-        <p>Worse than 90%
-            of the population
-          </p>
-      </Div>
-    </div>
-
-
-
-
-
-    <div class="container-smile">
-      <div class="logo-smile">
-        <i class="fa-regular fa-face-sad-tear"></i>
-      </div>
-
-      <p><strong><%= current_user.score %></strong>
-        <br>
-      CO2 / week</p>
-
-      <Div class="stat">
-        <i class="fa-solid fa-thumbs-down"></i>
-        <p>Worse than 50%
-            of the population
-          </p>
-      </Div>
-    </div>
-
-
-
-
-    <div class="container-smile">
-      <div class="logo-smile">
-        <i class="fa-regular fa-face-smile"></i>
-      </div>
-      <p><strong><%= current_user.score %></strong><br>CO2 / week</p>
-      <div class="stat">
-        <i class="fa-solid fa-thumbs-up"></i>
-        <p>Better than 90% of the population</p>
-      </div>
-      <div class="compare">
-        <p>- 7,7</p>
-        <p>Tons of CO2 / week <br>
-          compared to last week</p>
-      </div>
-      <br>
-      <div class="compare">
-        <p>+ 87 $</p>
-        <br>
-        <p>Saved in fuel budget</p>
-      </div>
-    </div>
-
-    </div>
-
-
-<% end %>
-
-
-
-
-
+    <button class="button-green">Plan my trips</button>
 </div>

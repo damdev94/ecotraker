@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: [:edit, :update, :destroy]
-  before_action :week_days, only: [:new, :edit]
+  before_action :week_days, only: [:new, :edit, :index]
 
   def index
     @trips = Trip.all
@@ -27,6 +27,7 @@ class TripsController < ApplicationController
 
     if @trip.save
       params[:trip][:schedule].each { |day| Day.create(date: Date.parse(day), trip: @trip) }
+      calculate_score(@trip)
       redirect_to trips_path
     else
       @vehicles = Vehicle.where(user_id: current_user.id)
@@ -52,7 +53,7 @@ class TripsController < ApplicationController
 
     if @trip.update(trip_params)
       @trip.days.destroy_all
-      params[:trip][:schedule].each do |day|
+      params[:trip][:schedule].values.each do |day|
         Day.create(date: Date.parse(day), trip: @trip)
       end
       @trip.label = "#{start_place.name} to #{end_place.name}"
@@ -83,5 +84,20 @@ class TripsController < ApplicationController
     7.times do |i|
       @week_days << [(Date.today + i).strftime("%A"), (Date.today + i)]
     end
+  end
+
+  def calculate_score(trip_instance)
+    if trip_instance.vehicle.vehicle_type == "car"
+      @calculate_score = (trip_instance.vehicle.carbon_kg/100.to_f) * trip_instance.distance * trip_instance.days.count
+    elsif trip_instance.vehicle.vehicle_type == "bus"
+      @calculate_score = 0.079 * trip_instance.distance * trip_instance.days.count
+    elsif trip_instance.vehicle.vehicle_type == "metro"
+      @calculate_score = 0.028 * trip_instance.distance * trip_instance.days.count
+    elsif trip_instance.vehicle.vehicle_type == "bike" || trip_instance.vehicle.vehicle_type == "walking"
+      #@calculate_score = -((trip_instance.vehicle.carbon_kg/100.to_f) * trip_instance.distance * trip_instance.days.count)
+      @calculate_score = 0
+    end
+    trip_instance.score = @calculate_score
+    trip_instance.save
   end
 end

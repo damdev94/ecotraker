@@ -94,7 +94,7 @@ class TripsController < ApplicationController
     elsif trip_instance.vehicle.vehicle_type == "metro"
       @calculate_score = 0.028 * trip_instance.distance * trip_instance.days.count
     elsif trip_instance.vehicle.vehicle_type == "bike" || trip_instance.vehicle.vehicle_type == "walking"
-      @calculate_score = -((trip_instance.vehicle.carbon_kg/100.to_f) * trip_instance.distance * trip_instance.days.count)
+      @calculate_score = 0
     end
     trip_instance.score = @calculate_score
     trip_instance.save

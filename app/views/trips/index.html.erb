@@ -9,7 +9,24 @@
         <div class="trip-front-part">
           <div>
             <%= trip.label %><br>
-            <%= trip.vehicle.brand %>
+            <div class="index-logo d-flex">
+              <% case trip.vehicle.vehicle_type %>
+                <% when "car" %>
+                  <i class="fa-solid fa-car"></i>
+                <% when "bus" %>
+                  <i class="fa-solid fa-bus"></i>
+                <% when "bike" %>
+                  <i class="fa-solid fa-bicycle"></i>
+                <% when "walk" %>
+                  <i class="fa-solid fa-person-walking"></i>
+                <% when "metro" %>
+                  <i class="fa-solid fa-train"></i>
+                <% else %>
+                  <i class="fa-solid fa-question"></i>
+              <% end %>
+              <p><%= trip.vehicle.vehicle_type %></p>
+            </div>
+
           </div>
 
           <div>

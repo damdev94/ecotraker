@@ -1,23 +1,45 @@
 <div class="container">
   <h1 class="main-title">My trips</h1>
-  <h2 class="secondary-title">Based on my weekly activity</h1>
-    <% @trips.each do |trip| %>
+  <h2 class="secondary-title">Based on my weekly activity</h2> <!-- Correction de la balise de fermeture h2 -->
+
+  <% @trips.each do |trip| %>
+
     <div class="container-trip">
       <div class="container-inside">
-        <%= trip.label %><br>
-        <%= trip.vehicle.brand%>
-      </div>
-      <%= link_to edit_trip_path(trip) do %>
-        <i class="fa-solid fa-pencil"></i>
-      <% end %>
-      <%= link_to trip_path(trip), data: { turbo_method: :delete, confirm: 'Are you sure?' } do%>
-        <i class="fa-solid fa-trash-can"></i>
-      <% end %>
-    </div>
-<% end %>
+        <div class="trip-front-part">
+          <div>
+            <%= trip.label %><br>
+            <%= trip.vehicle.brand %>
+          </div>
 
-    <br>
-    <br>
+          <div>
+            <%= link_to edit_trip_path(trip) do %>
+              <i class="fa-solid fa-pencil"></i>
+            <% end %>
+            <%= link_to trip_path(trip), data: { turbo_method: :delete, confirm: 'Are you sure?' } do %>
+              <i class="fa-solid fa-trash-can"></i>
+            <% end %>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="container-edit-trip">
+        <div class="days-section d-flex w-100">
+            <% @trip_day_dates = trip.days.pluck(:date) %>
+            <% @week_days.each do |day_name, date| %>
+              <div class="day-checkbox">
+                <%= check_box_tag "trip[schedule][]", date, @trip_day_dates.include?(date), class: "form_input" %>
+                <%= label_tag "trip", class: 'form_label_trip' do %>
+                  <%= day_name[0, 2] %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+      </div>
+    </div>
+
+    <% end %>
 
   <%= link_to "Create a trip", new_trip_path, class: "button-green secondary title" %>
 </div>

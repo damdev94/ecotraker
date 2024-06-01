@@ -22,7 +22,9 @@ class VehiclesController < ApplicationController
           brand_element = response_json.find do |brand|
             brand["data"]["attributes"]["name"] == @vehicle.brand
           end
-          @brand_id = brand_element["data"]["id"]
+          if brand_element
+            @brand_id = brand_element["data"]["id"]
+          end
         end
 
         url_model = "https://www.carboninterface.com/api/v1/vehicle_makes/#{@brand_id}/vehicle_models"
@@ -33,7 +35,9 @@ class VehiclesController < ApplicationController
           model_element = response_json.find do |model|
             model["data"]["attributes"]["name"] == @vehicle.model && model["data"]["attributes"]["year"] == @vehicle.year.to_i
           end
-          @model_id = model_element["data"]["id"]
+          if model_element
+            @model_id = model_element["data"]["id"]
+          end
         end
 
         url_consumption = "https://www.carboninterface.com/api/v1/estimates"
@@ -60,7 +64,7 @@ class VehiclesController < ApplicationController
       @vehicle.user_id = current_user.id
 
       unless @vehicle.save
-        render :new, status: :unprocessable_entity
+        render :new, status: :unprocessable_entity and return
       end
     end
     redirect_to trips_path

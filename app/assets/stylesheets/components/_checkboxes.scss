@@ -1,5 +1,5 @@
 .days-section {
-  width: 300px;
+  width: 110%;
 }
 
 .col-form-label {
@@ -51,4 +51,32 @@
   margin-left: 5px;
   margin-bottom: 20px;
   width: 100%;
+}
+
+
+.container-edit-trip {
+
+  .form_input {
+    display: block;
+    width: 30px;
+    height: 30px;
+  }
+
+  .days-section {
+    width: 110%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .day-checkbox {
+    position: relative;
+  }
+
+  .form_input {
+    visibility: hidden;
+  }
+
+  .form_label_trip {
+    position: absolute;
+  }
 }

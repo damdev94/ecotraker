@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: [:edit, :update, :destroy]
-  before_action :week_days, only: [:new, :edit]
+  before_action :week_days, only: [:new, :edit, :index]
 
   def index
     @trips = Trip.all
@@ -53,7 +53,7 @@ class TripsController < ApplicationController
 
     if @trip.update(trip_params)
       @trip.days.destroy_all
-      params[:trip][:schedule].each do |day|
+      params[:trip][:schedule].values.each do |day|
         Day.create(date: Date.parse(day), trip: @trip)
       end
       @trip.label = "#{start_place.name} to #{end_place.name}"

@@ -1,17 +1,14 @@
+.container-layout {
+  width: 100%;
+}
+
 .container-dark-blue {
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top: 32px;
-  padding-top: 32px;
-  padding-bottom: 15px;
-  padding-left: 20px;
-  padding-right: 20px;
+  width: 80%;
   background-color: #1E2483;
   color: #FFFFFF;
   border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 32px 20px 15px 20px;
+  margin: 10% auto;
 }
 
 .container-inside {
@@ -37,8 +34,13 @@
   background-color: #1E2483;
   color: #FFFFFF;
   border-radius: 20px;
+  align-items: center;
+}
+
+.trip-front-part{
+  width: 100%;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
 }
 

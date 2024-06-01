@@ -2,11 +2,21 @@
   width: 300px;
 }
 
+.col-form-label {
+  display: none;
+}
+
+.form_wrapper {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
 .form-check {
   position: relative;
 }
 
-.form-check-label {
+.form_label_trip {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,35 +30,25 @@
   left: 0px;
 }
 
-.form-check-input {
+.form_input {
   padding: 15px;
 }
 
-.col-form-label {
+.form_input {
   display: none;
 }
 
-.trip_schedule {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-}
-
-.check_boxes {
-  display: flex;
-  justify-content: space-around;
-}
-
-.form-check-input {
-  display: none;
-}
-
-/* Styles pour les étiquettes des cases à cocher cochées */
-.form-check-input:checked + .form-check-label {
+.form_input:checked + .form_label_trip {
   background-color: $green;
 }
 
-/* Styles pour les étiquettes des cases à cocher non cochées */
-.form-check-input:not(:checked) + .form-check-label {
+.form_input:not(:checked) + .form_label_trip {
   background-color: white;
+}
+
+.button-create-trip {
+  margin-top: 20px;
+  margin-left: 5px;
+  margin-bottom: 20px;
+  width: 100%;
 }

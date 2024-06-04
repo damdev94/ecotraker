@@ -9,7 +9,19 @@
         <div class="trip-front-part">
           <div>
             <%= trip.label %><br>
-            <div class="index-logo d-flex">
+          </div>
+
+          <div>
+            <%= link_to edit_trip_path(trip) do %>
+              <i class="fa-solid fa-pencil"></i>
+            <% end %>
+            <%= link_to trip_path(trip), data: { turbo_method: :delete, confirm: 'Are you sure?' } do %>
+              <i class="fa-solid fa-trash-can"></i>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="index-logo d-flex">
               <% case trip.vehicle.vehicle_type %>
                 <% when "car" %>
                   <i class="fa-solid fa-car"></i>
@@ -26,18 +38,6 @@
               <% end %>
               <p><%= trip.vehicle.vehicle_type %></p>
             </div>
-
-          </div>
-
-          <div>
-            <%= link_to edit_trip_path(trip) do %>
-              <i class="fa-solid fa-pencil"></i>
-            <% end %>
-            <%= link_to trip_path(trip), data: { turbo_method: :delete, confirm: 'Are you sure?' } do %>
-              <i class="fa-solid fa-trash-can"></i>
-            <% end %>
-          </div>
-        </div>
 
       </div>
 
@@ -57,6 +57,12 @@
     </div>
 
     <% end %>
+  <div class='add-button-container'>
+    <%= link_to new_trip_path, class: "add-trip-button" do %>
+      <i class="fa-solid fa-plus"></i>
+    <% end %>
+  </div>
+  </div>
 
-  <%= link_to "Create a trip", new_trip_path, class: "button-green secondary title" %>
+  <%= link_to "See my EcoTrack score", profile_path, class: "button-green button-trip-index secondary title" %>
 </div>

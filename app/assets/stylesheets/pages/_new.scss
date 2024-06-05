@@ -4,6 +4,33 @@
   margin-left: 20px;
 }
 
+
+.button-green-create {
+  margin-top: 20px !important;
+}
+
+.trip-banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .trip-banner-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    img{
+      width: 50px;
+      text-align: center;
+    }
+  }
+
 .fa-solid {
   margin-left: 120px;
   font-size: 30px;

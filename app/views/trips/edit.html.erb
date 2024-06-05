@@ -2,6 +2,14 @@
 
 <div class="container-dark-blue">
   <div class="container-inside">
+
+    <div class="trip-banner">
+      <div class="trip-banner-2">
+        <h2>My trips</h2>
+        <%= image_tag("Vector.png", alt: "Logo", class: "logo-trip") %>
+      </div>
+    </div>
+
     <%= simple_form_for(@trip) do |f| %>
       <%= f.hidden_field :label %>
       <%= f.input :start_place_id, collection: @places.map { |p| [p.name, p.id] }, prompt: 'Select a start place' %>
@@ -24,8 +32,9 @@
         </div>
       </div>
 
+      <%= link_to "cancel", trips_path, class: "button-cancel"%>
 
-      <%= f.submit "Add trip", class: "button-green button-create-trip"  %>
+      <%= f.submit "Add trip", class: "button-green button-create-trip button-green-create" %>
     <% end %>
   </div>
 </div>

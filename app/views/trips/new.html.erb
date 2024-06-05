@@ -5,6 +5,15 @@
 <div class="container-dark-blue">
 <h2 class="secondary-title">My trip</h2>
   <div class="container-inside">
+
+    <div class="trip-banner">
+      <div class="trip-banner-2">
+        <h2>My trips</h2>
+        <%= image_tag("Vector.png", alt: "Logo", class: "logo-trip") %>
+      </div>
+    </div>
+
+
     <%= simple_form_for(@trip) do |f| %>
       <%= f.hidden_field :label %>
       <%= f.input :start_place_id, collection: @places.map { |p| [p.name, p.id] }, prompt: 'Select a start place' %>
@@ -16,7 +25,9 @@
         <%= f.input :schedule, as: :check_boxes, collection: @week_days.map { |day_name, date| [day_name[0, 2], date] }, include_hidden: false, label: false, wrapper_html: {class: "form_wrapper"}, item_label_class: "form_label_trip", input_html: {class: "form_input"} %>
       </div>
 
-      <%= f.submit "Add trip", class: "button-green button-create-trip"  %>
+      <%= link_to "cancel", trips_path, class: "button-cancel"%>
+
+      <%= f.submit "Add trip", class: "button-green button-create-trip button-green-create"  %>
     <% end %>
 
   </div>

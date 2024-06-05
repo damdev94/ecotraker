@@ -8,7 +8,10 @@
       <div class="container-inside">
         <div class="trip-front-part">
           <div>
-            <%= trip.label %><br>
+              <%= trip.start_place.name %>
+              <%= image_tag("Vector.png", alt: "Logo") %>
+              <%= trip.end_place.name %>
+            <br>
           </div>
 
           <div>

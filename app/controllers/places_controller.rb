@@ -3,10 +3,12 @@ class PlacesController < ApplicationController
 
   def index
     @places = Place.all
+
   end
 
   def new
     @places = Place.all
+    @place = Place.where(user: current_user)
     @place = Place.new
     flash[:notice] = session.delete(:place_create_notice)
     flash[:alert] = session.delete(:place_create_alert)
@@ -24,10 +26,19 @@ class PlacesController < ApplicationController
     end
   end
 
+  def destroy
+    @place = Place.find(params[:id])
+    @place.destroy
+    redirect_to new_place_path
+
+
+  end
+
+
+  end
+
   private
 
   def place_params
     params.require(:place).permit(:address, :name)
   end
-
-end

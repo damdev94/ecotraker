@@ -1,13 +1,15 @@
 .place{
   margin: 5px;
   padding: 8px;
-  border: 1px solid $dark-blue;
+  border: 1px solid white;
   border-radius: 20px;
   color: $dark-blue;
-  background-color: $light-gray;
+  background-color: white;
   width: 100px;
   display: flex;
   justify-content: center;
+  box-shadow: 1px 1px 1px 1px;
+
 }
 
 .places{
@@ -18,4 +20,55 @@
 
 .all-places{
   margin: 10px;
+}
+
+
+.scroller {
+  width: 75%;
+  height: 140px;
+  overflow-y: scroll;
+  scrollbar-color: white green;
+  scrollbar-width: thin;
+  background-color: $dark-blue;
+  margin-top: 20px;
+
+}
+
+.container-dark-blue{
+  a{
+    margin: 20px;
+    display: flex;
+    align-content: center;
+
+  }
+}
+
+.button-empty-green{
+  width: 100%;
+}
+
+.container-inside{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-green.secondary-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-trash-can{
+  color: white;
+}
+
+.form-control{
+  border-radius: 20px;
+}
+
+.mapboxgl-ctrl{
+  border-radius: 20px;
+
 }

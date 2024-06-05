@@ -1,25 +1,34 @@
 <h1 class="main-title">Welcome to EcoTrack!</h1>
 <h2 class="secondary-title">Calculate the real impact of my trips!</h2>
   <div class="container-dark-blue">
-   <div class="progress-container">
+  <div class="progress-container">
     <div class="progression-bar-full"></div><div class="progression-bar"></div>
   </div>
     <h2 class="secondary-title">Let’s start with my locations</h2>
-    <div class="container-inside">
-      <%= render 'form', new: @place %>
+    <div class= "icon-home">
+      <i class="fa-solid fa-house"></i>
     </div>
+    <div class="container-inside">
+        <%= render 'form', new: @place %>
 
-      <div class="all-places">
-        <% @places.each do |place| %>
-          <div class="places">
-            <i class="fa-solid fa-crosshairs"></i>
-            <div class="place"><%= place.name %></div>
-          </div>
-        <% end %>
+
+          <div class="scroller">
+            <div class="all-places">
+              <% @places.reverse_each do |place| %>
+                <div class="places">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <div class="place"><%= place.name %></div>
+                    <%= link_to place_path(place), data: { turbo_method: :delete, confirm: 'Are you sure?' } do %>
+                      <i class="fa-solid fa-trash-can"></i>
+                    <% end %>
+                </div>
+              <% end %>
+        </div>
       </div>
-
-    <%= link_to "Next", new_vehicle_path, class: "button-green button-container secondary-title"  %>
+    </div>
+    <%= link_to "Next", new_vehicle_path, class: "button-green secondary-title"  %>
   </div>
+
 
 <% if flash.now[:notice] %>
   <p class="notice"><%= flash.now[:notice] %></p>

@@ -15,7 +15,9 @@
         <%= f.input :schedule, as: :check_boxes, collection: @week_days.map { |day_name, date| [day_name[0, 2], date] }, include_hidden: false, label: false, wrapper_html: {class: "form_wrapper"}, item_label_class: "form_label_trip", input_html: {class: "form_input"} %>
       </div>
 
-      <%= f.submit "Add trip", class: "button-green button-create-trip"  %>
+      <%= link_to "cancel", trips_path, class: "button-cancel"%>
+
+      <%= f.submit "Add trip", class: "button-green button-create-trip button-green-create"  %>
     <% end %>
 
   </div>

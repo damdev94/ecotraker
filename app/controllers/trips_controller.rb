@@ -100,4 +100,5 @@ class TripsController < ApplicationController
     trip_instance.score = @calculate_score
     trip_instance.save
   end
+
 end

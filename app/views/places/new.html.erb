@@ -14,11 +14,11 @@
 
           <div class="scroller">
             <div class="all-places">
-              <% @places.each do |place| %>
+              <% @places.reverse_each do |place| %>
                 <div class="places">
                   <i class="fa-solid fa-location-dot"></i>
                   <div class="place"><%= place.name %></div>
-                    <%= link_to places_path(place), data: { turbo_method: :delete, confirm: 'Are you sure?' } do %>
+                    <%= link_to place_path(place), data: { turbo_method: :delete, confirm: 'Are you sure?' } do %>
                       <i class="fa-solid fa-trash-can"></i>
                     <% end %>
                 </div>

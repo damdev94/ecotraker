@@ -1,9 +1,5 @@
 .container-layout {
   width: 100%;
-  height: 100vh;
-}
-
-.container {
   height: 100%;
 }
 
@@ -31,7 +27,8 @@
 .container-trip {
   margin-left: 20px;
   margin-right: 20px;
-  margin-top: 32px;
+  margin-top: 16px;
+  margin-bottom: 16px !important;
   padding-top: 32px;
   padding-bottom: 32px;
   padding-left: 20px;

@@ -1,0 +1,15 @@
+#custom-checkbox-page input[type="checkbox"] {
+  width: 35px;
+  height: 35px;
+}
+#custom-checkbox-page {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+}
+
+#custom-checkbox-page label {
+  margin-left: 20px;
+  font-size: 25px;
+}

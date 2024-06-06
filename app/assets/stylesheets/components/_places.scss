@@ -18,14 +18,10 @@
   align-items: center;
 }
 
-.all-places{
-  margin: 10px;
-}
-
 
 .scroller {
   width: 75%;
-  height: 140px;
+  height: 120px;
   overflow-y: scroll;
   scrollbar-color: white green;
   scrollbar-width: thin;
@@ -60,5 +56,10 @@
 
 .mapboxgl-ctrl{
   border-radius: 20px;
+}
+
+.icon-home{
+display: flex;
+justify-content: center;
 
 }

@@ -7,14 +7,14 @@
     <div class="container-trip">
       <div class="container-inside">
         <div class="trip-front-part">
-          <div>
+          <div class="trip-name">
               <%= trip.start_place.name %>
               <%= image_tag("Vector.png", alt: "Logo") %>
               <%= trip.end_place.name %>
             <br>
           </div>
 
-          <div>
+          <div class="logo-trash-pencil">
             <%= link_to edit_trip_path(trip) do %>
               <i class="fa-solid fa-pencil"></i>
             <% end %>
@@ -39,7 +39,7 @@
                 <% else %>
                   <i class="fa-solid fa-question"></i>
               <% end %>
-              <p><%= trip.vehicle.vehicle_type %></p>
+              <p class="vehicle-type"><%= trip.vehicle.vehicle_type %></p>
             </div>
 
       </div>

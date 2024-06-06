@@ -5,6 +5,7 @@
 .index-logo {
   display: flex;
   align-items: center;
+  margin-bottom: 5px;
   i {
     font-size: 20px;
   }
@@ -12,6 +13,23 @@
   p {
     margin: 0;
   }
+}
+
+.trip-name {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.logo-trash-pencil {
+  i {
+    font-size: 16px;
+    margin: 0 5px;
+  }
+}
+
+.vehicle-type{
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .button-trip-index {

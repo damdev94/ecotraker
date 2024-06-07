@@ -57,6 +57,7 @@ class TripsController < ApplicationController
         Day.create(date: Date.parse(day), trip: @trip)
       end
       @trip.label = "#{start_place.name} to #{end_place.name}"
+      calculate_score(@trip)
       @trip.save
       redirect_to trips_path
     else

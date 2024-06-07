@@ -15,6 +15,7 @@ class PlacesController < ApplicationController
   end
 
   def create
+    @places = Place.all
     @place = Place.new(place_params)
     @place.user_id = current_user.id
     if @place.save
@@ -22,7 +23,7 @@ class PlacesController < ApplicationController
       redirect_to new_place_path
     else
       session[:place_create_alert] = "There was a problem adding the place."
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

@@ -38,6 +38,10 @@
   align-items: center;
 }
 
+.container-trip:last-child {
+  margin-bottom: 50px;
+}
+
 .trip-front-part{
   width: 100%;
   display: flex;

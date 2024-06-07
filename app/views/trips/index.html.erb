@@ -59,11 +59,15 @@
     </div>
 
     <% end %>
-  <div class='add-button-container'>
-    <%= link_to new_trip_path, class: "add-trip-button" do %>
-      <i class="fa-solid fa-plus"></i>
-    <% end %>
+    <div class='add-button-container'>
+      <%= link_to new_trip_path, class: "add-trip-button" do %>
+        <i class="fa-solid fa-plus"></i>
+      <% end %>
+    </div>
   </div>
+
+  <div class="hidden-container">
+
   </div>
 
   <%= link_to "See my EcoTrack score", profile_path, class: "button-green button-trip-index secondary title" %>

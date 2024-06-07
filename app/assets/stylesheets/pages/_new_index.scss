@@ -9,6 +9,23 @@
   margin-top: 20px !important;
 }
 
+.container-checkbox-all {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+
+  p {
+    margin: 0;
+  }
+
+  input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+  }
+}
+
 .trip-banner {
   width: 100%;
   display: flex;

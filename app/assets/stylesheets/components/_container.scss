@@ -20,15 +20,14 @@
 }
 
 .container-inside form {
-  align-items: flex-start;
+  align-self: center;
   width: 90%;
 }
 
 .container-trip {
   margin-left: 20px;
   margin-right: 20px;
-  margin-top: 16px;
-  margin-bottom: 16px !important;
+  margin-top: 32px;
   padding-top: 32px;
   padding-bottom: 32px;
   padding-left: 20px;
@@ -37,6 +36,10 @@
   color: #FFFFFF;
   border-radius: 20px;
   align-items: center;
+}
+
+.container-trip:last-child {
+  margin-bottom: 50px;
 }
 
 .trip-front-part{

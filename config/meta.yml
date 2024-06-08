@@ -1,4 +1,5 @@
-meta_product_name: "EcoTracker"
-meta_title: "EcoTracker - Reduce Your Carbon Footprint"
-meta_description: "EcoTracker tracks and reduces your daily carbon footprint. Be an eco-hero! "
-meta_image: "logo_fond.png" # should exist in `app/assets/images/`
+
+ meta_product_name: "EcoTracker"
+ meta_title: "EcoTracker - Reduce Your Carbon Footprint"
+ meta_description: "EcoTracker tracks and reduces your daily carbon footprint. Be an eco-hero!"
+ meta_image: "cover.png"

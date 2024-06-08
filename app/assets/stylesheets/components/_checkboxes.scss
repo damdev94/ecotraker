@@ -67,7 +67,7 @@
   }
 
   .days-section {
-    width: 110%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
   }
@@ -83,4 +83,8 @@
   .form_label_trip {
     position: absolute;
   }
+}
+
+.form-select{
+  border-radius: 20px;
 }

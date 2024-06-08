@@ -17,7 +17,13 @@
       <%= f.input :vehicle_id, collection: @vehicles.map { |v| [v.vehicle_type, v.id] }, prompt: 'Select a vehicle' %>
 
       <div class="container-edit-trip">
-        <p>Select frequency</p>
+        <div class="container-checkbox-all">
+          <p>Select frequency</p>
+          <div class="input-check-all">
+            <label for="input-all">Check all</label>
+            <input type="checkbox" id="check-all" name="check-all">
+          </div>
+        </div>
         <div class="days-section d-flex">
           <% i = 0 %>
           <% @week_days.each do |day_name, date| %>

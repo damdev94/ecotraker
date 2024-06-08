@@ -3,7 +3,7 @@ class TripsController < ApplicationController
   before_action :week_days, only: [:new, :edit, :index]
 
   def index
-    @trips = Trip.order(created_at: :desc)
+    @trips = Trip.all
   end
 
   def new
@@ -95,7 +95,6 @@ class TripsController < ApplicationController
     elsif trip_instance.vehicle.vehicle_type == "metro"
       @calculate_score = 0.028 * trip_instance.distance * trip_instance.days.count
     elsif trip_instance.vehicle.vehicle_type == "bike" || trip_instance.vehicle.vehicle_type == "walking"
-
       @calculate_score = 0
     end
     trip_instance.score = @calculate_score

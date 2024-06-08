@@ -17,7 +17,7 @@
 
 .trip-name {
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 500;
 }
 
 .logo-trash-pencil {
@@ -29,7 +29,7 @@
 
 .vehicle-type{
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .button-trip-index {
@@ -42,4 +42,8 @@
 .hidden-container {
   height: 90px;
   width: 100%;
+}
+
+.form-select{
+  border-radius: 20px;
 }

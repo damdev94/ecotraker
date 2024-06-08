@@ -41,16 +41,13 @@
 .form_input:checked + .form_label_trip {
   background-color: $green;
   color: white;
-  font-weight: 600;
   font-family: "Roboto", sans-serif;
-  font-weight: 700;
   font-style: normal;
 }
 
 .form_input:not(:checked) + .form_label_trip {
   background-color: white;
   font-family: "Roboto", sans-serif;
-  font-weight: 700;
   font-style: normal;
 }
 

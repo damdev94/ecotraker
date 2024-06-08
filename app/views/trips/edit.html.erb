@@ -1,11 +1,17 @@
-<h1>Edit trip</h1>
+<h1 class="add-trip-title">Edit Trip</h1>
 
-<div class="container-dark-blue">
+<% if flash[:error].present? %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
+<div class="container-dark-blue" data-controller="checkall">
   <div class="container-inside">
 
     <div class="trip-banner">
       <div class="trip-banner-2">
-        <h2>My trips</h2>
+        <h2>My Trips</h2>
         <%= image_tag("Vector.png", alt: "Logo", class: "logo-trip") %>
       </div>
     </div>
@@ -18,29 +24,29 @@
 
       <div class="container-edit-trip">
         <div class="container-checkbox-all">
-          <p>Select frequency</p>
+          <p>Select Frequency</p>
           <div class="input-check-all">
+            <input type="checkbox" id="check-all" name="check-all" data-action="change->checkall#allchecked">
             <label for="input-all">Check all</label>
-            <input type="checkbox" id="check-all" name="check-all">
           </div>
         </div>
         <div class="days-section d-flex">
-          <% i = 0 %>
           <% @week_days.each do |day_name, date| %>
             <div class="day-checkbox">
-              <%= check_box_tag "trip[schedule][#{date}]", date, @trip_day_dates.include?(date), class: "form_input" %>
+              <%= check_box_tag "trip[schedule][#{date}]", date, @trip_day_dates.include?(date),
+                                class: "form_input", data: { check_all_target: "dayCheckbox" },
+                                data: { target: "checkall.dayCheckbox" } %>
               <%= label_tag "trip_schedule_#{date}", class: 'form_label_trip' do %>
                 <%= day_name[0, 2] %>
               <% end %>
             </div>
-            <% i += 1 %>
           <% end %>
         </div>
       </div>
 
-      <%= link_to "cancel", trips_path, class: "button-cancel"%>
+      <%= link_to "cancel", trips_path, class: "button-cancel" %>
 
-      <%= f.submit "Edit trip", class: "button-green button-create-trip button-green-create" %>
+      <%= f.submit "Edit Trip", class: "button-green button-create-trip button-green-create" %>
     <% end %>
   </div>
 </div>

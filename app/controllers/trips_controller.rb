@@ -26,11 +26,17 @@ class TripsController < ApplicationController
     @trip.label = "#{start_place.name} to #{end_place.name}"
 
     if @trip.save
-      params[:trip][:schedule].each { |day| Day.create(date: Date.parse(day), trip: @trip) }
-      calculate_score(@trip)
-      redirect_to trips_path
+      if params[:trip][:schedule].present? && params[:trip][:schedule].values.any?
+        params[:trip][:schedule].values.each { |day| Day.create(date: Date.parse(day), trip: @trip) }
+        calculate_score(@trip)
+        redirect_to trips_path
+      else
+        flash[:error] = "Please select at least one day."
+        redirect_to new_trip_path
+      end
     else
       @vehicles = Vehicle.where(user_id: current_user.id)
+      flash.now[:error] = "Please select at least one day." # Définir le message d'erreur pour la nouvelle tentative
       render :new, status: :unprocessable_entity
     end
   end

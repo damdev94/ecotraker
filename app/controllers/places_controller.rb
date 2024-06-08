@@ -7,8 +7,7 @@ class PlacesController < ApplicationController
   end
 
   def new
-    @places = Place.all
-    @place = Place.where(user: current_user)
+    @places = Place.where(user: current_user)
     @place = Place.new
     flash[:notice] = session.delete(:place_create_notice)
     flash[:alert] = session.delete(:place_create_alert)

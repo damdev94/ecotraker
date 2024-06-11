@@ -3,3 +3,14 @@
   background-color: #D9D9D9;
   text-align: left;
 }
+
+.custom-placeholder::placeholder {
+  color: rgb(150, 150, 150);
+  font-size: 16px;
+}
+
+.custom-geocoder-input::placeholder {
+  color:  rgb(150, 150, 150);
+  font-family: $body-font ;
+  font-size: 16px;
+}

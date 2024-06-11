@@ -1,7 +1,7 @@
 
 <%= simple_form_for(@place) do |f| %>
 
-  <%= f.input :name, input_html: { placeholder: 'Ex: Home, Work, Gym, etc..' }%>
+  <%= f.input :name, input_html: { placeholder: 'Ex: Home, Work, Gym, etc..', class: "custom-placeholder" }%>
 
   <%= f.input :address,
   input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},

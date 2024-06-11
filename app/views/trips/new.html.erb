@@ -23,13 +23,7 @@
       <%= f.input :vehicle_id, collection: @vehicles.map { |v| [v.vehicle_type, v.id] }, prompt: 'Select a vehicle' %>
 
       <div class="container-edit-trip">
-        <div class="container-checkbox-all">
-          <p>Select Frequency</p>
-          <div class="input-check-all">
-            <input type="checkbox" id="check-all" name="check-all" data-action="change->checkall#allchecked">
-            <label for="input-all">Check all</label>
-          </div>
-        </div>
+        <p class="select-frequency">Select Frequency</p>
         <div class="days-section d-flex">
           <% @week_days.each do |day_name, date| %>
             <div class="day-checkbox">
@@ -42,11 +36,18 @@
             </div>
           <% end %>
         </div>
+         <div class="container-checkbox-all">
+          <div class="input-check-all">
+            <input type="checkbox" id="check-all" name="check-all" data-action="change->checkall#allchecked">
+            <label for="input-all">Check all</label>
+          </div>
+        </div>
       </div>
+
+      <%= f.submit "Add trip", class: "button-green button-create-trip button-green-create"  %>
 
       <%= link_to "cancel", trips_path, class: "button-canceltrip"%>
 
-      <%= f.submit "Add trip", class: "button-green button-create-trip button-green-create"  %>
     <% end %>
 
   </div>

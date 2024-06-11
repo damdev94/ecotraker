@@ -9,8 +9,6 @@ class PlacesController < ApplicationController
   def new
     @places = Place.where(user: current_user)
     @place = Place.new
-    flash[:notice] = session.delete(:place_create_notice)
-    flash[:alert] = session.delete(:place_create_alert)
   end
 
   def create
@@ -18,10 +16,8 @@ class PlacesController < ApplicationController
     @place = Place.new(place_params)
     @place.user_id = current_user.id
     if @place.save
-      session[:place_create_notice] = "Place was successfully added."
       redirect_to new_place_path
     else
-      session[:place_create_alert] = "There was a problem adding the place."
       render :new, status: :unprocessable_entity
     end
   end

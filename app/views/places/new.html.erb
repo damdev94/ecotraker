@@ -4,7 +4,7 @@
   </div>
     <h2 class="secondary-title">Enter the name of your locations of the week</h2>
     <div class= "icon-home">
-      <i class="fa-solid fa-house"></i>
+      <i class="fa-solid fa-house home-logo-place"></i>
     </div>
     <div class="container-inside">
         <%= render 'form', new: @place %>
@@ -25,12 +25,3 @@
     </div>
     <%= link_to "Next", new_vehicle_path, class: "button-green secondary-title"  %>
   </div>
-
-
-<% if flash.now[:notice] %>
-  <p class="notice"><%= flash.now[:notice] %></p>
-<% end %>
-
-<% if flash.now[:alert] %>
-  <p class="alert"><%= flash.now[:alert] %></p>
-<% end %>

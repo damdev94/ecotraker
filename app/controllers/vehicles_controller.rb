@@ -67,7 +67,7 @@ class VehiclesController < ApplicationController
         render :new, status: :unprocessable_entity and return
       end
     end
-    redirect_to trips_path
+    redirect_to profile_path
 
   end
 

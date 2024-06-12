@@ -87,6 +87,9 @@
 
       <%end %>
     </div>
-
-      <%= link_to "Plan your trip ", trips_path, class: "button-green green-score"  %>
+     <% if @score == 0 %>
+        <%= link_to "Plan your first trip ", new_trip_path, class: "button-green green-score"  %>
+        <% elsif @score > 0 %>
+          <%= link_to "Edit your trips ", trips_path, class: "button-green green-score"  %>
+      <%end %>
     </div>

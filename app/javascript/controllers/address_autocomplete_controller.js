@@ -13,7 +13,7 @@ export default class extends Controller {
       accessToken: this.apiKeyValue,
       types: "country,region,place,postcode,locality,neighborhood,address",
       class: "custom-geocoder-input",
-      placeholder: "Add the address",
+      placeholder: "3458 rue Atateken",
       countries: "CA"
     })
     this.geocoder.addTo(this.element)

@@ -14,6 +14,7 @@ export default class extends Controller {
       types: "country,region,place,postcode,locality,neighborhood,address",
       class: "custom-geocoder-input",
       placeholder: "Add the address",
+      countries: "CA"
     })
     this.geocoder.addTo(this.element)
     this.geocoder.on("result", event => this.#setInputValue(event))

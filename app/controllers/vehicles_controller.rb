@@ -5,6 +5,9 @@ require "rest-client"
 class VehiclesController < ApplicationController
 
   def new
+    if Place.where(user: current_user).empty?
+      redirect_to new_place_path(empty_place: true)
+    end
     @vehicle = Vehicle.new
   end
 

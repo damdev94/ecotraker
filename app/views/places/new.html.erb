@@ -17,10 +17,12 @@
             <div class="all-places">
               <% @places.reverse_each do |place| %>
                 <div class="places">
-                  <div class="place"><%= place.name %></div>
-                    <%= link_to place_path(place), data: { turbo_method: :delete, confirm: 'Are you sure?' } do %>
+                  <%= link_to place_path(place), class: 'place-link', data: { turbo_method: :delete, confirm: 'Are you sure?' }  do %>
+                    <div class="place">
+                      <p class="name-place"><%= place.name %></p>
                       <i class="fa-solid fa-trash-can"></i>
-                    <% end %>
+                    </div>
+                  <% end %>
                 </div>
               <% end %>
         </div>

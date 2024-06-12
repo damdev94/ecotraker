@@ -1,15 +1,20 @@
 .place{
   margin: 5px;
-  padding: 8px;
+  padding: 8px 12px 8px 12px;
   border: 1px solid white;
   border-radius: 20px;
   color: $dark-blue;
   background-color: white;
-  width: 100px;
+  width: 150px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-content: center;
   box-shadow: 1px 1px 1px 1px;
 
+  a{
+    text-decoration: none;
+
+  }
 }
 
 .places{
@@ -48,7 +53,7 @@
 
 .fa-trash-can{
   color: white;
-  margin-left: 20px;
+
 }
 
 .form-control{
@@ -67,5 +72,17 @@ justify-content: center;
 .icon-car{
   display: flex;
   justify-content: center;
+}
 
+.fa-trash-can{
+  color: $dark-blue;
+ margin-top: 3px;
+}
+
+.name-place{
+  margin: 0;
+}
+
+.place-link{
+  text-decoration: none;
 }

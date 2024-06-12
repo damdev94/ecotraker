@@ -13,6 +13,11 @@
     </div>
   <h2 class="secondary-title">Enter your transports informations</h2>
   <div class="container-inside">
+    <% if @error_message.present? %>
+      <div class="error-message">
+        <%= @error_message %>
+      </div>
+    <% end %>
 
     <%= simple_form_for(@vehicle, html: { id: 'vehicleForm' }) do |f| %>
         <h3 class="tertiary-title">Select your transports :</h3>

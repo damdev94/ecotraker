@@ -8,8 +8,10 @@
   </div>
     <h2 class="secondary-title">Enter the name of your locations of the week</h2>
     <div class="container-inside">
+        <% if params[:empty_place] %>
+           <p class="error-message">the user must have at least one registered place</p>
+        <% end %>
         <%= render 'form', new: @place %>
-
 
           <div class="scroller">
             <div class="all-places">

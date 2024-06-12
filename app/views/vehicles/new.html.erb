@@ -1,5 +1,12 @@
+ <div class="back-button">
+      <%= link_to "   Back", new_place_path, class: "fa-solid fa-circle-chevron-left" %>
+
+
+  </div>
+
+
 <div class="container-dark-blue">
-   <div class="progress-container">
+  <div class="progress-container">
       <div class="progression-bar-full">
         <div class= "icon-home">
           <i class="fa-solid fa-house home-logo-place"></i>
@@ -61,7 +68,12 @@
             </fieldset>
 
         </div>
-    <%= f.submit value: "Next", class: "button-green secondary-title button-container"%>
-    <% end %>
+
+        <div class="next-button">
+          <%= f.submit value: "Next", class: "button-green secondary-title"%>
+          <% end %>
+        </div>
+
+
   </div>
 </div>

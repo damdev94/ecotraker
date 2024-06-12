@@ -9,6 +9,7 @@ class VehiclesController < ApplicationController
       redirect_to new_place_path(empty_place: true)
     end
     @vehicle = Vehicle.new
+    @error_message = flash[:alert] || nil
   end
 
   def create
@@ -20,28 +21,36 @@ class VehiclesController < ApplicationController
         token = 'dOD3GnxZFQjx6nLuMcN9w'
 
         URI.open(url_brand, 'Authorization' => "Bearer #{token}") do |response|
-          response_serialized = response.read
-          response_json = JSON.parse(response_serialized)
-          brand_element = response_json.find do |brand|
-            brand["data"]["attributes"]["name"] == @vehicle.brand
-          end
-          if brand_element
-            @brand_id = brand_element["data"]["id"]
-          end
+        response_serialized = response.read
+        response_json = JSON.parse(response_serialized)
+        brand_element = response_json.find do |brand|
+          brand["data"]["attributes"]["name"] == @vehicle.brand
         end
-
-        url_model = "https://www.carboninterface.com/api/v1/vehicle_makes/#{@brand_id}/vehicle_models"
-
-        URI.open(url_model, 'Authorization' => "Bearer #{token}") do |response|
-          response_serialized = response.read
-          response_json = JSON.parse(response_serialized)
-          model_element = response_json.find do |model|
-            model["data"]["attributes"]["name"] == @vehicle.model && model["data"]["attributes"]["year"] == @vehicle.year.to_i
-          end
-          if model_element
-            @model_id = model_element["data"]["id"]
-          end
+        if brand_element
+          @brand_id = brand_element["data"]["id"]
+        else
+          flash[:alert] = "Error. We couldn't find your vehicle brand."
+          @error_message = flash[:alert]
+          redirect_to new_vehicle_path and return
         end
+      end
+
+      url_model = "https://www.carboninterface.com/api/v1/vehicle_makes/#{@brand_id}/vehicle_models"
+
+      URI.open(url_model, 'Authorization' => "Bearer #{token}") do |response|
+        response_serialized = response.read
+        response_json = JSON.parse(response_serialized)
+        model_element = response_json.find do |model|
+          model["data"]["attributes"]["name"] == @vehicle.model && model["data"]["attributes"]["year"] == @vehicle.year.to_i
+        end
+        if model_element
+          @model_id = model_element["data"]["id"]
+        else
+          flash[:alert] = "Error. We couldn't find your vehicle model."
+          @error_message = flash[:alert]
+          redirect_to new_vehicle_path and return
+        end
+      end
 
         url_consumption = "https://www.carboninterface.com/api/v1/estimates"
 

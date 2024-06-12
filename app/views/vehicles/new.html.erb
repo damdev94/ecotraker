@@ -1,11 +1,17 @@
 <div class="container-dark-blue">
    <div class="progress-container">
-    <div class="progression-bar-full"></div><div class="progression-bar-full"></div>
-  </div>
+      <div class="progression-bar-full">
+        <div class= "icon-home">
+          <i class="fa-solid fa-house home-logo-place"></i>
+        </div>
+      </div>
+      <div class="progression-bar-full">
+        <div class= "icon-car">
+          <i class="fa-solid fa-car vehicle-logo-new"></i>
+        </div>
+      </div>
+    </div>
   <h2 class="secondary-title">Enter your transports informations</h2>
-  <div class= "icon-car">
-    <i class="fa-solid fa-car vehicle-logo-new"></i>
-  </div>
   <div class="container-inside">
 
     <%= simple_form_for(@vehicle, html: { id: 'vehicleForm' }) do |f| %>
@@ -48,7 +54,6 @@
               </div>
 
             </fieldset>
-
 
         </div>
     <%= f.submit value: "Add my vehicles", class: "button-green secondary-title button-container"%>

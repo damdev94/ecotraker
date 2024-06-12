@@ -1,11 +1,12 @@
   <div class="container-dark-blue">
   <div class="progress-container">
-    <div class="progression-bar-full"></div><div class="progression-bar"></div>
+    <div class="progression-bar-full">
+      <div class= "icon-home">
+        <i class="fa-solid fa-house home-logo-place"></i>
+      </div>
+    </div><div class="progression-bar"></div>
   </div>
     <h2 class="secondary-title">Enter the name of your locations of the week</h2>
-    <div class= "icon-home">
-      <i class="fa-solid fa-house home-logo-place"></i>
-    </div>
     <div class="container-inside">
         <%= render 'form', new: @place %>
 

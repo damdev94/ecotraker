@@ -20,12 +20,12 @@ h1 {
 }
 
 .logo {
-display: flex;
-justify-content: center;
-margin-top: 50px;
-opacity: 0;
-animation: fadeIn 2s ease-out forwards;
-color: #87B37A;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards;
+  color: #87B37A;
 }
 
 
@@ -42,4 +42,9 @@ color: #87B37A;
   text-decoration: none;
   width: 350px;
   margin-left: 21px;
+}
+
+.home-sentence {
+  margin-bottom: 100px;
+  text-shadow: 0px 10px 20px rgb(0, 0, 0)
 }

@@ -73,23 +73,16 @@
           <h3>+87</h3><p>daily saved on fuel consumption</p>
         </div>
 
-
-
-
-        <%# <div class="compare">
-          <p> - 7,7 Kg of CO2 / week <br>compared to last week</p>
-        </div>
-        <div class="compare">
-          <p>+ 87 $Saved in fuel budget</p>
-        </div> %>
-
-
-
       <%end %>
     </div>
-     <% if @score == 0 %>
-        <%= link_to "Plan my first trip ", new_trip_path, class: "button-green green-score"  %>
+
+    <div class="bottom-button">
+      <% if @score == 0 %>
+          <%= link_to "Plan my first trip ", new_trip_path, class: "button-green green-score"  %>
         <% elsif @score > 0 %>
           <%= link_to "Edit my trips ", trips_path, class: "button-green green-score"  %>
       <%end %>
+    </div>
+
+
     </div>

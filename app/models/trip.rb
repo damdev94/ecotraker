@@ -32,7 +32,7 @@ class Trip < ApplicationRecord
       distance = JSON.parse(distance_serialized)
       self.distance = distance["routes"][0]["distance"]/1000
     end
-    # self.distance = Geocoder::Calculations.distance_between([self.start_place.latitude,self.start_place.longitude],[self.end_place.latitude,self.end_place.longitude])
+    self.distance = self.distance * 2 if self.round
   end
 
 

@@ -1,7 +1,7 @@
- <div class="back-button">
-      <%= link_to "   Back", new_place_path, class: "fa-solid fa-circle-chevron-left" %>
-
-
+  <div class="back-button">
+      <%= link_to new_place_path, class: "fa-solid fa-circle-chevron-left" do %>
+        <span class="back-text">Back</span>
+      <% end %>
   </div>
 
 

@@ -38,9 +38,9 @@
 
             <div data-toggle-target="togglableElement" class="d-none">
                 <div class="form-car"><%= "Enter your car's informations" %></div>
-                <%= f.input :brand %>
-                <%= f.input :model %>
-                <%= f.input :year %>
+                <%= f.input :brand , placeholder: ' Ex : Audi, BMW, Hyundai...'%>
+                <%= f.input :model, placeholder: ' Ex : A3, M4, Santa Fe...' %>
+                <%= f.input :year, placeholder: ' Ex : 2013, 2014, 2015 ...' %>
             </div>
 
 

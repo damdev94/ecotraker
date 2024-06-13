@@ -46,9 +46,9 @@
                 <% else %>
                   <i class="fa-solid fa-question"></i>
               <% end %>
-              <% if trip.score < 15 %>
+              <% if trip.score < 10 %>
                 <p class="text-good"> <%= sprintf('%.1f', trip.score)%> kg/CO2 </p>
-              <% elsif trip.score < 20 && trip.score > 15 %>
+              <% elsif trip.score < 20 && trip.score > 10 %>
                 <p class="text-average"> <%= sprintf('%.1f', trip.score)%> kg/CO2 </p>
               <% elsif trip.score > 20 %>
                 <p class="text-bad"> <%= sprintf('%.1f', trip.score)%> kg/CO2 </p>

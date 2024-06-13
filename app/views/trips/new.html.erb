@@ -21,7 +21,7 @@
       <%= f.input :start_place_id, collection: @places.map { |p| [p.name, p.id] }, prompt: 'Select a start place' %>
       <%= f.input :end_place_id, collection: @places.map { |p| [p.name, p.id] }, prompt: 'Select an end place' %>
       <%= f.input :vehicle_id, collection: @vehicles.map { |v| [v.vehicle_type, v.id] }, prompt: 'Select a vehicle' %>
-
+      <%= f.input :round, label: "Round Trip ?" %>
       <div class="container-edit-trip">
         <p class="select-frequency">Select Frequency</p>
         <div class="days-section d-flex">

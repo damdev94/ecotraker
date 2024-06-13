@@ -18,6 +18,14 @@
 .trip-name {
   font-size: 20px;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  .round-trip {
+    display: inline-grid;
+  }
+  i {
+    margin: 0 15px;
+  }
 }
 
 .logo-trash-pencil {

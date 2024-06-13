@@ -8,7 +8,16 @@
         <div class="trip-front-part">
           <div class="trip-name">
               <%= trip.start_place.name %>
-              <i class="fa-solid fa-arrow-right"></i>
+
+                <% if trip.round %>
+                  <div class="round-trip">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    <i class="fa-solid fa-arrow-left"></i>
+                  </div>
+                <% else %>
+                  <i class="fa-solid fa-arrow-right"></i>
+                <% end %>
+
               <%= trip.end_place.name %>
             <br>
           </div>

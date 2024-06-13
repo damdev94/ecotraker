@@ -18,7 +18,11 @@
 
 .container-checkbox-all {
   width: 100%;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
 
   p {
     margin: 0;
@@ -30,11 +34,21 @@
     margin-right: 5px;
   }
 
+
   .input-check-all {
-    padding-top: 15px;
+    height: 40px;
     display: flex;
     justify-content: start;
     align-items: center;
+  }
+
+  .trip_round {
+    margin-bottom: 0px !important;
+    background-color: none;
+  }
+
+  .input-check-all-buton {
+    margin-top: 0;
   }
 }
 

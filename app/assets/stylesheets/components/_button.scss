@@ -37,3 +37,33 @@
 .green-score {
   margin-top: 0px;
 }
+
+.fa-circle-chevron-left{
+  color: $dark-blue;
+  border: 1px solid $dark-blue;
+  border-radius: 20px;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 12px;
+  box-shadow: 1px 1px 1px 0px $dark-blue;
+}
+
+
+.back-button{
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.next-button{
+display: flex;
+justify-content: center;
+
+ .button-green{
+  width: 95%;
+  margin-left: 0;
+  margin-right: 0;
+
+ }
+}

@@ -1,4 +1,5 @@
-EcoTracker
+ECOTRACKER
+
 EcoTracker is a mobile application that allows you to track your CO2 emissions based on your travel and the modes of transportation you use. With EcoTracker, you can compare your impact with the Canadian average to see if you are above or below this average.
 
 Access the Application

@@ -23,6 +23,12 @@
       <%= f.input :vehicle_id, collection: @vehicles.map { |v| [v.vehicle_type, v.id] }, prompt: 'Select a vehicle' %>
       <div class="container-edit-trip">
         <p class="select-frequency">Select Frequency</p>
+        <div class="container-checkbox-all">
+          <div class="input-check-all">
+            <input type="checkbox" id="check-all" class="input-check-all-buton form-check-input is-valid boolean optional" name="check-all" data-action="change->checkall#allchecked">
+            <label for="input-all" class="form-check-label boolean optional">Check all</label>
+          </div>
+        </div>
         <div class="days-section d-flex">
           <% @week_days.each do |day_name, date| %>
             <div class="day-checkbox">
@@ -35,11 +41,7 @@
             </div>
           <% end %>
         </div>
-         <div class="container-checkbox-all">
-          <div class="input-check-all">
-            <input type="checkbox" id="check-all" class="input-check-all-buton form-check-input is-valid boolean optional" name="check-all" data-action="change->checkall#allchecked">
-            <label for="input-all" class="form-check-label boolean optional">Check all</label>
-          </div>
+        <div class="container-checkbox-all">
           <div class="checkboxes-roundTrip">
             <%= f.input :round, label: "Round Trip ?", input_html: { class: "form-check-input is-valid boolean optional" } %>
           </div>

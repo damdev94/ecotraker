@@ -88,8 +88,11 @@ class TripsController < ApplicationController
 
   def week_days
     @week_days = []
+    date  = Date.parse("Monday")
+    delta = date > Date.today ? 0 : 7
+    date += delta
     7.times do |i|
-      @week_days << [(Date.today + i).strftime("%A"), (Date.today + i)]
+      @week_days << [(date + i).strftime("%A"), (date + i)]
     end
   end
 

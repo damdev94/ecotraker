@@ -15,6 +15,16 @@
   padding: 10px;
 }
 
+.container-score{
+  position: relative;
+}
+
+.shared-logo {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+
 .page{
   display: flex;
   flex-direction: column;

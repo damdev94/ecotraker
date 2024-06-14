@@ -3,7 +3,7 @@ class TripsController < ApplicationController
   before_action :week_days, only: [:new, :edit, :index]
 
   def index
-    @trips = Trip.all
+    @trips = Trip.where(user_id: current_user.id).order(updated_at: :desc)
   end
 
   def new

@@ -1,7 +1,6 @@
 <div class= "logo">
 <%= image_tag 'logo.png', alt: "Logo Ecotrack" %>
 </div>
-
 <p class="secondary-title home-sentence">Estimate your carbon print <br> based on your weekly trips</p>
 <% if current_user.trips.any?%>
   <%= link_to "See my score", new_place_path, class:"button-home" %>

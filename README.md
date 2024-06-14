@@ -1,2 +1,1 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
-# ecotraker
+![Design preview for the Body Mass Index Calculator coding challenge](./preview.png)

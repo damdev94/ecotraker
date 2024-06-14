@@ -9,6 +9,7 @@ The application is accessible via this link: https://ecotracker-806ded6e78fc.her
 
 FEATURES:
 
+
 -Creation of Recurring Places: Add places you regularly visit, such as your home or workplace.
 
 -Trip Creation: Record your usual trips by specifying the starting place, destination, mode of transportation (car, bus, metro, walking, biking), and the days of the week you take these trips.
@@ -23,21 +24,34 @@ FEATURES:
 
 USER JOURNEY:
 
+
 -Sign Up: Create an account with your email and password if you don't have one.
+
 -Add Places: Add places you frequently visit.
+
 -Choose Transportation Modes: Select the transportation modes you use (car, bike, bus, walking, metro).
+
 -Enter Vehicle Details: If you use a car, provide the details of your vehicle.
+
 -Create Trips: Add trips by specifying the starting place, destination, transportation mode, days of the week, and whether it's a round trip or not.
+
 -Manage Trips: Modify or delete your trips as needed.
+
 -Manage Places: Delete and recreate places as needed.
+
 -View Score: Check your weekly score with detailed information on your CO2 emissions.
 
 TECHNOLOGIES USED:
 
+
 -Frontend: Bootstrap and Stimulus for a responsive and interactive user interface.
+
 -Backend: Ruby on Rails for API management and application logic.
+
 -Database: SQL for storing user and trip data.
+
 -External API: Integration of an API for calculating vehicle CO2 emissions.
+
 
 CONTACT
 

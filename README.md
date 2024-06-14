@@ -7,6 +7,7 @@ The application is accessible via this link: https://ecotracker-806ded6e78fc.her
 
 ![Design preview for the Body Mass Index Calculator coding challenge](./preview.png)
 
+
 FEATURES:
 
 
@@ -21,6 +22,7 @@ FEATURES:
 -Comparison with Canadian Average: Find out if you are above or below the average CO2 emissions in Canada.
 
 -Additional Information: Get data such as the number of planets needed if everyone emitted as much CO2 as you, and the money saved by using more eco-friendly transportation methods.
+
 
 USER JOURNEY:
 
@@ -41,6 +43,7 @@ USER JOURNEY:
 
 -View Score: Check your weekly score with detailed information on your CO2 emissions.
 
+
 TECHNOLOGIES USED:
 
 
@@ -54,6 +57,7 @@ TECHNOLOGIES USED:
 
 
 CONTACT
+
 
 For any questions or suggestions, please create an issue on the GitHub repository or contact the project maintainer directly.
 

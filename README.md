@@ -58,4 +58,5 @@ CONTACT
 For any questions or suggestions, please create an issue on the GitHub repository or contact the project maintainer directly.
 
 
+
 Thank you for using EcoTracker to make your travels more eco-friendly and contribute to a sustainable future! 🌍🚴‍♂️🚶‍♀️🚗

@@ -71,8 +71,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_12_213438) do
     t.datetime "updated_at", null: false
     t.string "year"
     t.string "vehicle_type"
-    t.string "api_id"
     t.integer "carbon_kg"
+    t.string "api_id"
     t.index ["user_id"], name: "index_vehicles_on_user_id"
   end
 

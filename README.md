@@ -11,7 +11,7 @@ The application is accessible via this link: https://ecotracker-806ded6e78fc.her
 FEATURES:
 
 
--Creation of Recurring Places: Add places you regularly visit, such as your home or workplace.
+  -Creation of Recurring Places: Add places you regularly visit, such as your home or workplace.
 
 -Trip Creation: Record your usual trips by specifying the starting place, destination, mode of transportation (car, bus, metro, walking, biking), and the days of the week you take these trips.
 

@@ -3,7 +3,7 @@ class TripsController < ApplicationController
   before_action :week_days, only: [:new, :edit, :index]
 
   def index
-    @trips = Trip.all
+    @trips = Trip.where(user_id: current_user.id).order(updated_at: :desc)
   end
 
   def new
@@ -100,7 +100,7 @@ class TripsController < ApplicationController
       @calculate_score = 0.079 * trip_instance.distance * trip_instance.days.count
     elsif trip_instance.vehicle.vehicle_type == "metro"
       @calculate_score = 0.028 * trip_instance.distance * trip_instance.days.count
-    elsif trip_instance.vehicle.vehicle_type == "bike" || trip_instance.vehicle.vehicle_type == "walking"
+    elsif trip_instance.vehicle.vehicle_type == "bike" || trip_instance.vehicle.vehicle_type == "walk"
       @calculate_score = 0
     end
     trip_instance.score = @calculate_score

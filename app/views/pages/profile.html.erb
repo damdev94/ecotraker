@@ -13,6 +13,26 @@
         </div>
         <h2>No score yet !</h2>
 
+    <% elsif @score < 20 && @score > 10 %>
+        <div class="logo-smile">
+          <i class="fa-regular fa-face-smirking"></i>
+        </div>
+        <div class="jauge">
+          <div class="avancement" style= "right: <%= @placement %>%;"></div>
+        </div>
+        <h3><strong><%= sprintf('%.1f', @score)%> Kg</strong></h3><p>CO2 / week</p>
+        <div class="container-message">
+          <i class="fa-solid fa-thumbs-up fa-2x"></i>
+          <p>Your consumption is better than <strong>87%</strong> of the population</p>
+        </div>
+        <div class="container-message">
+          <h3>-7,7</h3>
+          <p>kg of CO2 less than <strong>last week</strong></p>
+        </div>
+        <div class="container-message">
+          <h3>+87<i class="fa-solid fa-dollar-sign"></i></h3>
+          <p> saved on <strong>fuel</strong> consumption this week</p>
+        </div>
 
     <% elsif  @score > 15%>
         <div class="logo-smile">
@@ -42,7 +62,7 @@
         <h3><strong><%= sprintf('%.1f', @score) %> Kg</strong></h3><p>CO2 / week</p>
         <div class="container-message">
           <i class="fa-solid fa-chart-simple fa-2x"></i>
-          <h3>-7,7</h3><p>kg of CO2/km less than last week</p>
+          <h3>-7,7</h3><p>kg of CO2 less than last week</p>
         </div>
         <div class="container-message">
           <i class="fa-solid fa-thumbs-up fa-2x"></i>
@@ -50,7 +70,7 @@
         </div>
         <div class="container-message">
           <i class="fa-solid fa-dollar-sign fa-2x"></i>
-          <h3>+87</h3><p>daily saved on fuel consumption</p>
+          <h3>+87</h3><p>saved on fuel consumption this week</p>
         </div>
 
       <%end %>

@@ -1,4 +1,4 @@
-ECOTRACKER
+# ECOTRACKER
 
 EcoTracker is a mobile application that allows you to track your CO2 emissions based on your travel and the modes of transportation you use. With EcoTracker, you can compare your impact with the Canadian average to see if you are above or below this average.
 
@@ -8,7 +8,7 @@ The application is accessible via this link: https://ecotracker-806ded6e78fc.her
 ![Design preview for the Body Mass Index Calculator coding challenge](./preview.png)
 
 
-FEATURES:
+## FEATURES:
 
 
   -Creation of Recurring Places: Add places you regularly visit, such as your home or workplace.
@@ -24,7 +24,7 @@ FEATURES:
 -Additional Information: Get data such as the number of planets needed if everyone emitted as much CO2 as you, and the money saved by using more eco-friendly transportation methods.
 
 
-USER JOURNEY:
+## USER JOURNEY:
 
 
 -Sign Up: Create an account with your email and password if you don't have one.
@@ -44,7 +44,7 @@ USER JOURNEY:
 -View Score: Check your weekly score with detailed information on your CO2 emissions.
 
 
-TECHNOLOGIES USED:
+## TECHNOLOGIES USED:
 
 
 -Frontend: Bootstrap and Stimulus for a responsive and interactive user interface.
@@ -56,7 +56,7 @@ TECHNOLOGIES USED:
 -External API: Integration of an API for calculating vehicle CO2 emissions.
 
 
-CONTACT
+## CONTACT
 
 
 For any questions or suggestions, please create an issue on the GitHub repository or contact the project maintainer directly.

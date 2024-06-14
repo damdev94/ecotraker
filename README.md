@@ -9,7 +9,7 @@ The application is accessible via this link: https://ecotracker-806ded6e78fc.her
 
 FEATURES:
 
--Creation of Recurring Places: Add places you regularly visit, such as your home or workplace./n
+-Creation of Recurring Places: Add places you regularly visit, such as your home or workplace.\n
 -Trip Creation: Record your usual trips by specifying the starting place, destination, mode of transportation (car, bus, metro, walking, biking), and the days of the week you take these trips.
 -CO2 Emissions Calculation: Track your weekly CO2 emissions on a dedicated page that displays your score.
 -Vehicle Personalization: If you use a car, enter the make, model, and year of your vehicle for precise CO2 consumption calculations using a dedicated API.
